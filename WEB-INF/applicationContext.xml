@@ -3,8 +3,29 @@
 <beans>
 
 	<!-- First spring bean -->
-	<bean id="helloWorldClass" class="the.web.actions.HelloWorld">
+	<!-- <bean id="helloWorldClass" class="the.web.actions.HelloWorld">
 		<property name="message" value="Hello World!" />
+	</bean> -->
+
+	<!-- Controller Actions -->
+	<bean id="inflateSubsystemList" class="the.web.actions.InflateSubsystemList">
+		<property name="subsystemList">
+			<ref local="subsystemList" />
+		</property>
+	</bean>
+	<bean id="loginAction" class="the.web.actions.LoginAction">
+		
+	</bean>
+
+	<!-- Some instance bean -->
+	<bean id="subsystemList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<value>jiangu</value>
+				<value>peiyouqi</value>
+				<value>diankong</value>
+			</list>
+		</constructor-arg>
 	</bean>
 
 </beans>

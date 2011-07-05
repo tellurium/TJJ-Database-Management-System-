@@ -8,6 +8,10 @@ import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+
+import java.util.Date;
 
 @Entity
 @Table(name="user")
@@ -28,13 +32,14 @@ public class User implements java.io.Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name="user_id", nullable=false)
-	public Integer getId() {
-		return this.id;
+	public Integer getUserId() {
+		return this.userId;
 	}
 	
-	public void setId(Integer id) {
-		this.id = id;    	
+	public void setUserId(Integer userId) {
+		this.userId = userId;    	
 	}
+	
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="privilege_id")
@@ -84,12 +89,14 @@ public class User implements java.io.Serializable {
 	
 	@Temporal(TemporalType.DATE)//不用set,hibernate会自动把当前时间写入	
 	@Column(name="create_datetime")
-	public Integer getPrivilegeId() {
-		return this.privilegeId;
+	public Date getCreateDatetime() {
+		return this.createDatetime;
 	}
 	
-	public void setPrivilegeId(Integer privilegeId) {
-		this.privilegeId = privilegeId;    	
+	public void setCreateDatetime(Date createDatetime) {
+		this.createDatetime = createDatetime;    	
 	}
+	
+	
 	
 }

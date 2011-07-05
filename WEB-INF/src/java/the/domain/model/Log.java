@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import java.util.Date;
+
 @Entity
 @Table(name="log")
 public class Log implements java.io.Serializable {
