@@ -5,7 +5,9 @@
    
    
 <struts>  
- <package name="default" extends="struts-default" >  
-   
- </package>  
+ 	<package name="default" extends="struts-default" >  
+ 		<action name="helloWorldClass" class="the.web.actions.HelloWorld">
+ 			<result name="SUCCESS">/hello-world.jsp</result>
+ 		</action>
+ 	</package>  
 </struts>     

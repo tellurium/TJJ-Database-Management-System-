@@ -7,9 +7,11 @@
 	<title>Index</title>
 </head>
 <body>
-	<s:form action="/welcome-user">
+	<s:form action="/hello-world">
 		<s:textfield name="userName" label="User Name" />
 		<s:textfield name="password" label="Password" />
+		<s:select name="subsystem" label="Select a subsystem" list="{'sys1', 'sys2', 'sys3'}"
+			headerKey="" headerValue="----------" />
 		<s:submit />
 	</s:form>
 </body>

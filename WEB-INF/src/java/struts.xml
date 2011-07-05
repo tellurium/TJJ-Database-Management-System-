@@ -5,7 +5,7 @@
    
    
 <struts>  
- <package name="default" extends="struts-default" >  
-   
- </package>  
+ 	<package name="default" extends="struts-default" >  
+ 		
+ 	</package>  
 </struts>     
