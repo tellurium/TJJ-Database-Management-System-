@@ -1,12 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<%@include file="/WEB-INF/content/top-header.jsp" %>
 	<META HTTP-EQUIV="Refresh" CONTENT="0;URL=inflateSubsystemList.action">
 <title>Index</title>
-</head>
-<body>
+<%@include file="/WEB-INF/content/middle.jsp" %>
 	<h1>Loading...</h1>
-</body>
-</html>
+
+<%@include file="/WEB-INF/content/bottom-footer.jsp" %>

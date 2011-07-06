@@ -1,19 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<!DOCTYPE html>
-<%@ taglib uri="/struts-tags" prefix="s" %>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<%@include file="top-header.jsp" %>
+	<%
+		String s = resource.getString("introduction.title");
+	%>
 	<title>Index</title>
 	<s:head />
-</head>
-<body>
+<%@include file="middle.jsp" %>
 	<s:form action="loginAction">
 		<s:textfield name="userName" label="User Name" />
 		<s:password name="password" label="Password" />
-		<s:select name="subsystem" list="subsystemList"
-			headerKey="" headerValue="----------" />
+		<s:select name="subsystemName" list="subsystemList"
+			headerKey="" headerValue="--------------" />
 		<s:submit />
 	</s:form>
-</body>
-</html>
+<%@include file="bottom-footer.jsp" %>

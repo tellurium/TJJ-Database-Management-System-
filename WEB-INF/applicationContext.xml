@@ -14,7 +14,9 @@
 		</property>
 	</bean>
 	<bean id="loginAction" class="the.web.actions.LoginAction">
-		
+		<property name="subsystemList">
+			<ref local="subsystemList" />
+		</property>
 	</bean>
 
 	<!-- Some instance bean for debug-->

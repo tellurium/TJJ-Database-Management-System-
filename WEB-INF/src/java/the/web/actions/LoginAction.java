@@ -10,6 +10,8 @@ public class LoginAction extends ActionSupport {
 	
 	private String userName;
 	private String password;
+	private String subsystemName;
+	private ArrayList<String> subsystemList;
 
 	public String execute() {
 		return "success";
@@ -42,6 +44,22 @@ public class LoginAction extends ActionSupport {
 	
 	public void setPassword(String password) {
 		this.password = password;    	
+	}
+
+	public String getSubsystemName() {
+		return this.subsystemName;
+	}
+	
+	public void setSubsystemName(String subsystemName) {
+		this.subsystemName = subsystemName;    	
+	}
+
+	public ArrayList<String> getSubsystemList() {
+		return this.subsystemList;
+	}
+	
+	public void setSubsystemList(ArrayList<String> subsystemList) {
+		this.subsystemList = subsystemList;    	
 	}
 	
 }
