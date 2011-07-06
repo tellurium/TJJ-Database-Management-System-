@@ -3,43 +3,45 @@ package the.web.actions;
 import java.util.ArrayList;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
 import the.domain.model.User;
 
-public class LoginAction extends ActionSupport implements ModelDriven<User> {
+public class LoginAction extends ActionSupport {
 	
-	private User user;
+	private String userName;
+	private String password;
 
 	public String execute() {
 		return "success";
 	}
 
-	@Override
-	public User getModel() {
-		return user;
-	}
-
 	//validate login information
 	public void validate() {
-		if (user != null) {
-	        if (getUser().getUserName().length() == 0) {
-	            addFieldError("userName", "User Name is required");
-	        } else if (!getUser().getUserName().equals("Eswar")) {
-	            addFieldError("userName", "Invalid User");
-	        }
-	        if (getUser().getPassword().length() == 0) {
-	            addFieldError("password", getText("password.required"));
-	        }
-		}
+		clearErrorsAndMessages();
+        if (getUserName().length() == 0) {
+            addFieldError("userName", "User Name is required");
+        } else if (!getUserName().equals("admin")) {
+            addFieldError("userName", "Invalid User");
+        }
+        if (getPassword().length() == 0) {
+            addFieldError("password", "password.required");
+        }
     }
 
-	public User getUser() {
-		return this.user;
+	public String getUserName() {
+		return this.userName;
 	}
 	
-	public void setUser(User user) {
-		this.user = user;    	
+	public void setUserName(String userName) {
+		this.userName = userName;    	
+	}
+	
+	public String getPassword() {
+		return this.password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;    	
 	}
 	
 }

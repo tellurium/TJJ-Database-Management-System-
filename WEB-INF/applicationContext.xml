@@ -17,7 +17,7 @@
 		
 	</bean>
 
-	<!-- Some instance bean -->
+	<!-- Some instance bean for debug-->
 	<bean id="subsystemList" class="java.util.ArrayList">
 		<constructor-arg>
 			<list>

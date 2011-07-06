@@ -11,7 +11,7 @@
    		</action>
   
    		<action name="loginAction" class="loginAction">
-   			<result name="input">/WEB-INF/content/index.jsp</result>
+   			<result name="input" type="chain">inflateSubsystemList</result>
    			<result name="success">/WEB-INF/content/introduction.jsp</result>
    			<result name="error">/error.jsp</result>
    		</action>
