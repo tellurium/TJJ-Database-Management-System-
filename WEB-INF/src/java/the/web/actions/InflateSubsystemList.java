@@ -3,6 +3,7 @@ package the.web.actions;
 import java.util.ArrayList;
 
 public class InflateSubsystemList {
+
 	
 	private ArrayList<String> subsystemList;
 

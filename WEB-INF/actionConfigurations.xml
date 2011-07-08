@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+ 	
+ 	<!-- Actions Configuration -->
+	<bean id="inflateSubsystemList" class="the.web.actions.InflateSubsystemList">
+		<property name="subsystemList">
+			<ref local="subsystemList" />
+		</property>
+	</bean>
+
+	<bean id="loginAction" class="the.web.actions.LoginAction">
+		<property name="subsystemList">
+			<ref local="subsystemList" />
+		</property>
+	</bean>
+
+	<!-- Some instance bean for debug-->
+	<bean id="subsystemList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<value>jiangu</value>
+				<value>peiyouqi</value>
+				<value>diankong</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+</beans>

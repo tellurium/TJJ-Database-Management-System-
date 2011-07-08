@@ -10,11 +10,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.UniqueConstraint;
 
 import java.util.Date;
 
 @Entity
-@Table(name="user")
+@Table(name="user",
+	  uniqueConstraints = {@UniqueConstraint(columnNames={"user_name", "email"})}
+)
 public class User implements java.io.Serializable {
 	
 	private Integer userId;
@@ -92,7 +95,7 @@ public class User implements java.io.Serializable {
 		this.password = password;    	
 	}
 	
-	@Temporal(TemporalType.DATE)//不用set,hibernate会自动把当前时间写入	
+	@Temporal(TemporalType.DATE)
 	@Column(name="create_datetime")
 	public Date getCreateDatetime() {
 		return this.createDatetime;

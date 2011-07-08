@@ -2,32 +2,15 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 
-	<!-- First spring bean -->
-	<!-- <bean id="helloWorldClass" class="the.web.actions.HelloWorld">
-		<property name="message" value="Hello World!" />
-	</bean> -->
 
-	<!-- Controller Actions -->
-	<bean id="inflateSubsystemList" class="the.web.actions.InflateSubsystemList">
-		<property name="subsystemList">
-			<ref local="subsystemList" />
-		</property>
-	</bean>
-	<bean id="loginAction" class="the.web.actions.LoginAction">
-		<property name="subsystemList">
-			<ref local="subsystemList" />
-		</property>
-	</bean>
+	<!-- Hibernate configurations -->
+	<import resource="hibernateSessionFactory.xml" />
 
-	<!-- Some instance bean for debug-->
-	<bean id="subsystemList" class="java.util.ArrayList">
-		<constructor-arg>
-			<list>
-				<value>jiangu</value>
-				<value>peiyouqi</value>
-				<value>diankong</value>
-			</list>
-		</constructor-arg>
-	</bean>
+	<!-- Actions Configuration -->
+	<import resource="actionConfigurations.xml" />
+
+	 	
+	<!-- Some data instances for test -->
+	<!-- <import resource="testInstance.xml" /> -->
 
 </beans>
