@@ -7,4 +7,4 @@
 	<s:a href="#">Change password</s:a>
 	<s:select name="subsystem" label="Select a subsystem" list="subsystemList"
 			headerKey="" headerValue="----------" />
-	<button type="button">Log out</button>
+	<s:submit value="Log out" />
