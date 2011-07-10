@@ -4,16 +4,30 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">  
    
    
-<struts>  
- 	<package name="default" extends="struts-default" >  
- 		<action name="inflateSubsystemList" class="inflateSubsystemList">
+<struts>
+
+   <constant name="struts.custom.i18n.resources" value="MessageBundle" />
+     
+ 	<package name="default" extends="hibernate-default" >
+ 		
+ 		   <!-- Inflate SubsystemList -->  
+ 		   <action name="inflateSubsystemList" class="inflateSubsystemList">
    			<result name="success">/WEB-INF/content/index.jsp</result>
    		</action>
   
+  		   <!-- Login action -->
    		<action name="loginAction" class="loginAction">
    			<result name="input" type="chain">inflateSubsystemList</result>
    			<result name="success">/WEB-INF/content/introduction.jsp</result>
    			<result name="error">/error.jsp</result>
+   		</action>
+
+   		<!-- Subsystem CRUD -->
+   		<action name="addSubsystem" method="add" class="subsystemClass">
+   			<result name="success" type="redirect">listSubsystem</result>
+   		</action>
+   		<action name="listSubsystem" method="list" class="subsystemClass">
+   			<result name="success">/WEB-INF/content/subsystem.jsp</result>
    		</action>
  	</package>  
 </struts>     

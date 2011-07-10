@@ -49,8 +49,8 @@ public class User implements java.io.Serializable {
 	}
 	
 
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="privilege_id")
+	//@ManyToOne(fetch=FetchType.LAZY)
+	//@JoinColumn(name="privilege_id")
 	public Privilege getPrivilege() {
 		return this.privilege;
 	}

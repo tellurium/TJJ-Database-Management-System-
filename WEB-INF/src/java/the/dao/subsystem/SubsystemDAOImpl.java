@@ -24,7 +24,17 @@ public class SubsystemDAOImpl implements SubsystemDAO {
 
 	@Override
 	public void addSubsystem(Subsystem subsystem) {
-		
+		// if (subsystem.getSubsystemName().equals("")) {
+		// 	return;
+		// }
+		try {
+			session.save(subsystem);
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -32,9 +42,17 @@ public class SubsystemDAOImpl implements SubsystemDAO {
 		return test;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Subsystem> listSubsystem() {
-		return test;
+		List<Subsystem> subsystems = null;
+		try {
+			subsystems = session.createQuery("From Subsystem").list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return subsystems;
 	}
 
 	@Override

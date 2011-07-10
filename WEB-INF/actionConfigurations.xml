@@ -10,9 +10,17 @@
 	</bean>
 
 	<bean id="loginAction" class="the.web.actions.LoginAction">
-		<property name="subsystemList">
-			<ref local="subsystemList" />
+		
+	</bean>
+
+	<bean id="subsystemClass" class="the.web.actions.SubsystemAction">
+		<property name="subsystemDAO">
+			<ref local="subsystemDAOImpl" />
 		</property>
+	</bean>
+
+	<bean id="subsystemDAOImpl" class="the.dao.subsystem.SubsystemDAOImpl">
+		
 	</bean>
 
 	<!-- Some instance bean for debug-->

@@ -11,6 +11,6 @@
 
 	 	
 	<!-- Some data instances for test -->
-	<!-- <import resource="testInstance.xml" /> -->
+	<import resource="testInstance.xml" />
 
 </beans>

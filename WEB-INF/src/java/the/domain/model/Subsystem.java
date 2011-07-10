@@ -43,8 +43,8 @@ public class Subsystem implements java.io.Serializable {
 		this.subsystemId = subsystemId;    	
 	}
 
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="user_id")
+	//@OneToOne(fetch=FetchType.LAZY)
+	//@JoinColumn(name="user_id")
 	public User getCreateUser() {
 		return this.createUser;
 	}
@@ -71,8 +71,7 @@ public class Subsystem implements java.io.Serializable {
 		this.subsystemDescription = subsystemDescription;    	
 	}
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name="create_time")
+	@Column(name="create_time", columnDefinition="TIMESTAMP ", updatable = false)
 	public Date getCreateTime() {
 		return this.createTime;
 	}
