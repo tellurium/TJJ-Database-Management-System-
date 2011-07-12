@@ -15,7 +15,9 @@
 		<property name="hbm2ddl.auto">create</property>
 
 		<!-- Mapping classes -->
-		<mapping class="the.domain.model.User" />
+ 		<mapping class="the.domain.model.User" />
 		<mapping class="the.domain.model.Subsystem" />
+		<mapping class="the.domain.model.Privilege" />
+		<mapping class="the.domain.model.Log" />
 	</session-factory>
 </hibernate-configuration>

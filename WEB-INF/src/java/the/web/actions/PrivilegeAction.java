@@ -20,7 +20,7 @@ public class PrivilegeAction extends ActionSupport implements ModelDriven<Privil
 	private List<Privilege> privilegeList = new ArrayList<Privilege>();
 
 	@Override
-	public void getModel() {
+	public Privilege getModel() {
 		return privilege;	
 	}
 
@@ -33,9 +33,9 @@ public class PrivilegeAction extends ActionSupport implements ModelDriven<Privil
 		privilegeList = privilegeDAO.listPrivilege();
 		return SUCCESS;
 	}
-
-	public PrivilegeDAO getPrivilegeDAO() {
-		return this.privilegeDAO;
+	
+	public void setPrivilegeDAO(PrivilegeDAO privilegeDAO) {
+		this.privilegeDAO = privilegeDAO;    	
 	}
 	
 	public List<Privilege> getPrivilegeList() {

@@ -7,16 +7,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.FetchType;
 import javax.persistence.UniqueConstraint;
+import javax.persistence.TemporalType;
+import javax.persistence.CascadeType;
+
 
 import java.util.Date;
 
 @Entity
 @Table(name="user",
-	  uniqueConstraints = {@UniqueConstraint(columnNames={"user_name", "email"})}
+	uniqueConstraints = {@UniqueConstraint(columnNames= "user_name"),
+						 @UniqueConstraint(columnNames = "email")}
 )
 public class User implements java.io.Serializable {
 	
@@ -25,16 +28,24 @@ public class User implements java.io.Serializable {
 	private String sex;
 	private String email;
 	private String password;
-	private Date createDatetime;
+
+	private Date createTime;
 
 	private Privilege privilege;
 
 	public User() {
 	}
 
-	public User(String userName, String password) {
+	public User(String userName, String email) {
 		this.userName = userName;
-		this.password = password;
+		this.email = email;
+	}
+
+	public User(String userName, String	sex, String email, Privilege privilege) {
+		this.userName = userName;
+		this.sex = sex;
+		this.email = email;
+		this.privilege = privilege;
 	}
 
 	@Id
@@ -48,17 +59,6 @@ public class User implements java.io.Serializable {
 		this.userId = userId;    	
 	}
 	
-
-	//@ManyToOne(fetch=FetchType.LAZY)
-	//@JoinColumn(name="privilege_id")
-	public Privilege getPrivilege() {
-		return this.privilege;
-	}
-	
-	public void setPrivilege(Privilege privilege) {
-		this.privilege = privilege;    	
-	}
-
 	@Column(name="user_name", nullable=false)
 	public String getUserName() {
 		return this.userName;
@@ -77,7 +77,7 @@ public class User implements java.io.Serializable {
 		this.sex = sex;    	
 	}
 	
-	@Column(name="email")
+	@Column(name="email", nullable=false)
 	public String getEmail() {
 		return this.email;
 	}
@@ -95,16 +95,24 @@ public class User implements java.io.Serializable {
 		this.password = password;    	
 	}
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name="create_datetime")
-	public Date getCreateDatetime() {
-		return this.createDatetime;
+	@Column(name="create_time", columnDefinition="TIMESTAMP ", updatable = false)
+	public Date getCreateTime() {
+		return this.createTime;
 	}
 	
-	public void setCreateDatetime(Date createDatetime) {
-		this.createDatetime = createDatetime;    	
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;    	
 	}
 	
+
+	@ManyToOne(targetEntity=Privilege.class, cascade = CascadeType.ALL)
+	@JoinColumn(name="privilege_id")
+	public Privilege getPrivilege() {
+		return this.privilege;
+	}
 	
+	public void setPrivilege(Privilege privilege) {
+		this.privilege = privilege;    	
+	}
 	
 }

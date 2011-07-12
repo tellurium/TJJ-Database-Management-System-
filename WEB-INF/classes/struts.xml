@@ -2,8 +2,6 @@
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">  
-   
-   
 <struts>
 
    <constant name="struts.custom.i18n.resources" value="MessageBundle" />
@@ -22,12 +20,45 @@
    			<result name="error">/error.jsp</result>
    		</action>
 
-   		<!-- Subsystem CRUD -->
+   		<!-- Subsystem action -->
    		<action name="addSubsystem" method="add" class="subsystemClass">
    			<result name="success" type="redirect">listSubsystem</result>
    		</action>
    		<action name="listSubsystem" method="list" class="subsystemClass">
    			<result name="success">/WEB-INF/content/subsystem.jsp</result>
    		</action>
+         <action name="editSubsystem" method="edit" class="subsystemClass">
+            <result name="success">/WEB-INF/content/subsystem.jsp</result>
+         </action>
+         <action name="deleteSubsystem" method="delete" class="subsystemClass">
+            <result name="success" type="redirect">listSubsystem</result>
+         </action>
+
+         <!-- Privilege action -->
+         <action name="addPrivilege" method="add" class="privilegeClass">
+            <result name="success" type="redirect">listPrivilege</result>
+         </action>
+         <action name="listPrivilege" method="list" class="privilegeClass">
+            <result name="success">/WEB-INF/content/privilege.jsp</result>
+         </action>
+
+         <!-- User action -->
+         <action name="addUser" method="add" class="userClass">
+            <result name="success" type="redirect">listUser</result>
+         </action>
+         <action name="listUser" method="list" class="userClass">
+            <result name="success">/WEB-INF/content/user.jsp</result>
+         </action>
+
+         <!-- Log action -->
+         <action name="addLog" method="add" class="logClass">
+            <result name="success" type="redirect">listLog</result>
+            <result name="input">/error.jsp</result>
+         </action>
+         <action name="listLog" method="list" class="logClass">
+            <result name="success">/WEB-INF/content/log.jsp</result>
+            <result name="input">/error.jsp</result>
+         </action>
+
  	</package>  
 </struts>     

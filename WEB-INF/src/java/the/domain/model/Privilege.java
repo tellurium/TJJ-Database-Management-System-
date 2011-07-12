@@ -5,14 +5,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="privilege")
+@Table(name="privilege", uniqueConstraints = {@UniqueConstraint(columnNames={"privilege_name"})})
 public class Privilege implements java.io.Serializable {
 	
 	private Integer privilegeId;
 	private String privilegeName;
 	private String description;
+
+	public Privilege() {
+	}
+
+	public Privilege(String privilegeName) {
+		this.privilegeName = privilegeName;
+	}
+
 
 	@Id
 	@GeneratedValue

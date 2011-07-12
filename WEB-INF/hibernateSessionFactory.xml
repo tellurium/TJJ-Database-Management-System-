@@ -17,6 +17,7 @@
 				<value>the.domain.model.User</value>
 				<value>the.domain.model.Privilege</value>
 				<value>the.domain.model.Subsystem</value>
+				<value>the.domain.model.Log</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -26,6 +27,26 @@
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>
 		</property>
+	</bean> -->
+
+	<!-- User -->
+	<!-- <bean id="userClass" class="the.web.actions.UserAction">
+		<property name="userDAO">
+			<ref local="userDAOImpl" />
+		</property>
+	</bean>
+	<bean id="userDAOImpl" class="the.dao.user.UserDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory"/>
+	</bean> -->
+
+	<!-- Log -->
+	<!-- <bean id="logClass" class="the.web.actions.LogAction">
+		<property name="logDAO">
+			<ref local="logDAOImpl" />
+		</property>
+	</bean>
+	<bean id="logDAOImpl" class="the.dao.log.LogDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory"/>
 	</bean> -->
  
 </beans>

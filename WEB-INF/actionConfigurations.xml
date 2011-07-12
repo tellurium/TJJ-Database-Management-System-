@@ -13,15 +13,37 @@
 		
 	</bean>
 
+	<!-- Subsystem -->
 	<bean id="subsystemClass" class="the.web.actions.SubsystemAction">
 		<property name="subsystemDAO">
 			<ref local="subsystemDAOImpl" />
 		</property>
 	</bean>
+	<bean id="subsystemDAOImpl" class="the.dao.subsystem.SubsystemDAOImpl" />
 
-	<bean id="subsystemDAOImpl" class="the.dao.subsystem.SubsystemDAOImpl">
-		
+	<!-- Privilege -->
+	<bean id="privilegeClass" class="the.web.actions.PrivilegeAction">
+		<property name="privilegeDAO">
+			<ref local="privilegeDAOImpl" />
+		</property>
 	</bean>
+	<bean id="privilegeDAOImpl" class="the.dao.privilege.PrivilegeDAOImpl" />
+
+	<!-- User -->
+	<bean id="userClass" class="the.web.actions.UserAction">
+		<property name="userDAO">
+			<ref local="userDAOImpl" />
+		</property>
+	</bean>
+	<bean id="userDAOImpl" class="the.dao.user.UserDAOImpl" />
+
+	<!-- Log -->
+	<bean id="logClass" class="the.web.actions.LogAction">
+		<property name="logDAO">
+			<ref local="logDAOImpl" />
+		</property>
+	</bean>
+	<bean id="logDAOImpl" class="the.dao.log.LogDAOImpl"/>
 
 	<!-- Some instance bean for debug-->
 	<bean id="subsystemList" class="java.util.ArrayList">

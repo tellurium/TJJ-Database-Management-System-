@@ -10,7 +10,8 @@ public interface SubsystemDAO {
 	void addSubsystem(Subsystem subsystem);
 	List<String> getSubsystemNameList();
 	List<Subsystem> listSubsystem();
-	void deleteSubsystem(Subsystem subsystem);
+	void deleteSubsystem(Integer id);
 	void updateSubsystem(Subsystem subsystem);
+	Subsystem getSubsystem(Integer id);
 	
 }

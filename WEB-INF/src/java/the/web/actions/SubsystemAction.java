@@ -3,6 +3,11 @@ package the.web.actions;
 import java.util.List;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -30,6 +35,19 @@ public class SubsystemAction extends ActionSupport implements ModelDriven<Subsys
 
 	public String list() {
 		subsystemList = subsystemDAO.listSubsystem();
+		return SUCCESS;
+	}
+
+	public String edit() {
+		//subsystem = subsystemDAO.getSubsystem(subsystemId);
+		return SUCCESS;
+	}
+
+	public String delete() {
+
+		//get the 'subsystemId'
+		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get( ServletActionContext.HTTP_REQUEST);
+		subsystemDAO.deleteSubsystem(Integer.parseInt( request.getParameter("subsystemId")));
 		return SUCCESS;
 	}
 

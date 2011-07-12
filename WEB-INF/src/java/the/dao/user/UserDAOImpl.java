@@ -1,4 +1,4 @@
-package the.dao.privilege;
+package the.dao.user;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -6,13 +6,13 @@ import org.hibernate.Transaction;
 import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
 import com.googlecode.s2hibernate.struts2.plugin.annotations.TransactionTarget;
 
+import the.domain.model.User;
 import the.domain.model.Privilege;
 
 import java.util.List;
-import java.util.ArrayList;
 
-public class PrivilegeDAOImpl implements PrivilegeDAO {
-
+public class UserDAOImpl implements UserDAO {
+	
 	@SessionTarget
 	Session session;
 
@@ -20,9 +20,12 @@ public class PrivilegeDAOImpl implements PrivilegeDAO {
 	Transaction transaction;
 
 	@Override
-	public void addPrivilege(Privilege privilege) {
+	public void addUser(User user) {
+		// if( user == null || user.getUserName().equals("") || user.getEmail().equals("")) {
+		// 	return;
+		// }
 		try {
-			session.save(privilege);
+			session.save(user);
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
@@ -31,16 +34,16 @@ public class PrivilegeDAOImpl implements PrivilegeDAO {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Privilege> listPrivilege() {
-		List<Privilege> privileges = null;
+	public List<User> listUser() {
+		List<User> users = null;
 		try {
-			privileges = session.createQuery("From Privilege").list();
+			users = session.createQuery("From User").list();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return privileges;
+		return users;
 	}
+
 }

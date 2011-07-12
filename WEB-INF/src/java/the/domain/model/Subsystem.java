@@ -43,8 +43,8 @@ public class Subsystem implements java.io.Serializable {
 		this.subsystemId = subsystemId;    	
 	}
 
-	//@OneToOne(fetch=FetchType.LAZY)
-	//@JoinColumn(name="user_id")
+	@OneToOne
+	@JoinColumn(name="user_id")
 	public User getCreateUser() {
 		return this.createUser;
 	}

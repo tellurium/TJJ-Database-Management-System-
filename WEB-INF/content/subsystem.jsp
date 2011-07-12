@@ -2,7 +2,7 @@
 	<title>Subsystem</title>
 <%@include file="inner/middle.jsp" %>
 	
-	<s:form action="addSubsystem">
+	<s:form action="addSubsystem" >
 		<s:textfield name="subsystemName" label="Subsystem Name" />
 		<s:textfield name="subsystemDescription" label="Subsystem Description" />
 		<s:submit />
@@ -17,6 +17,8 @@
 				<th>Description</th>
 				<th>CreateTime</th>
 				<th>User</th>
+				<th>Edit</th>
+				<th>Delete</th>
 			</tr>
 
 			<s:iterator value="subsystemList" status="subsystemStatus">
@@ -27,6 +29,16 @@
 					<td><s:property value="subsystemDescription" /></td>
 					<td><s:property value="createTime" /></td>
 					<td><s:property value="createUser" /></td>
+					<td>
+						<a href="<s:url action="editSubsystem"><s:param name="subsystemId" value="subsystemId"/></s:url>">
+						Edit
+						</a>
+					</td>
+					<td>
+						<a href="<s:url action="deleteSubsystem"><s:param name="subsystemId" value="subsystemId" /></s:url>">
+						Delete
+						</a>
+					</td>
 				</tr>
 			</s:iterator>
 		</table>

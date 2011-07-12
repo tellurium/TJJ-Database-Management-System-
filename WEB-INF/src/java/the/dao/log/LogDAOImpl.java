@@ -1,4 +1,4 @@
-package the.dao.privilege;
+package the.dao.log;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -6,13 +6,12 @@ import org.hibernate.Transaction;
 import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
 import com.googlecode.s2hibernate.struts2.plugin.annotations.TransactionTarget;
 
-import the.domain.model.Privilege;
-
 import java.util.List;
-import java.util.ArrayList;
 
-public class PrivilegeDAOImpl implements PrivilegeDAO {
+import the.domain.model.Log;
 
+public class LogDAOImpl implements LogDAO {
+	
 	@SessionTarget
 	Session session;
 
@@ -20,9 +19,9 @@ public class PrivilegeDAOImpl implements PrivilegeDAO {
 	Transaction transaction;
 
 	@Override
-	public void addPrivilege(Privilege privilege) {
+	public void addLog(Log log) {
 		try {
-			session.save(privilege);
+			session.save(log);
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
@@ -31,16 +30,17 @@ public class PrivilegeDAOImpl implements PrivilegeDAO {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Privilege> listPrivilege() {
-		List<Privilege> privileges = null;
+	public List<Log> listLog() {
+		List<Log> logs = null;
 		try {
-			privileges = session.createQuery("From Privilege").list();
+			logs = session.createQuery("From Log").list();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return privileges;
+		return logs;
 	}
+
+
 }
