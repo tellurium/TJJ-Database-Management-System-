@@ -1,8 +1,5 @@
 <%@include file="inner/top-header.jsp" %>	
-	<%
-		String title = resource.getString("introduction.title");
-	%>
-	<title><%=title%></title>
+	<title><s:property value="subsystemName" /><s:text name="introduction.title" /></title>
 <%@include file="inner/middle.jsp" %>
 <%@include file="inner/navigator-bar.jsp" %>	
 	<div class="introduction-text">

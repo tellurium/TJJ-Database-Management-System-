@@ -3,6 +3,6 @@
 <title><s:text name="loading.title" /></title>
 <%@include file="/WEB-INF/content/inner/middle.jsp" %>
 
-	<h1>Loading...</h1>
+	<h1><s:text name="loading.title" /></h1>
 
 <%@include file="/WEB-INF/content/inner/bottom-footer.jsp" %>

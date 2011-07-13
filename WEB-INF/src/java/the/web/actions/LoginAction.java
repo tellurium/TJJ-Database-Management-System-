@@ -18,7 +18,7 @@ public class LoginAction extends ActionSupport {
 
 	public String execute() {
 		subsystemList = subsystemDAO.getSubsystemList();
-		return "success";
+		return SUCCESS;
 	}
 
 	// public void validate() {
@@ -32,6 +32,10 @@ public class LoginAction extends ActionSupport {
  //            addFieldError("password", "password.required");
  //        }
  //    }
+
+ 	public String showIntroduction() {
+ 		return SUCCESS;
+ 	}
 
 	public String getUserName() {
 		return this.userName;

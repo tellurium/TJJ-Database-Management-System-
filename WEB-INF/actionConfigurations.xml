@@ -17,7 +17,7 @@
 			<ref local="subsystemDAOImpl" />
 		</property>
 	</bean>
-
+	
 	<!-- Subsystem -->
 	<bean id="subsystemClass" class="the.web.actions.SubsystemAction">
 		<property name="subsystemDAO">

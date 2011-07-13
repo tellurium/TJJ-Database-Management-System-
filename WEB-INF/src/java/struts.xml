@@ -16,9 +16,12 @@
   		   <!-- Login action -->
    		<action name="login" class="loginClass" >
    			<result name="input" type="redirect">index</result>
-   			<result name="success">/WEB-INF/content/introduction.jsp</result>
+   			<result name="success">/WEB-INF/content/query.jsp</result>
    			<result name="error">/error.jsp</result>
    		</action>
+         <action name="introduction" method="showIntroduction" class="loginClass" >
+            <result name="success">/WEB-INF/content/introduction.jsp</result>
+         </action>
 
    		<!-- Subsystem action -->
    		<action name="addSubsystem" method="add" class="subsystemClass">
