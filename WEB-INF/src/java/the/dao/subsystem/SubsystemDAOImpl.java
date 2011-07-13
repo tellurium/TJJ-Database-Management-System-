@@ -10,6 +10,7 @@ import com.googlecode.s2hibernate.struts2.plugin.annotations.TransactionTarget;
 import the.domain.model.Subsystem;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class SubsystemDAOImpl implements SubsystemDAO {
 
@@ -18,8 +19,6 @@ public class SubsystemDAOImpl implements SubsystemDAO {
 
 	@TransactionTarget
 	Transaction transaction;
-
-	private List test = null;
 
 	@Override
 	public void addSubsystem(Subsystem subsystem) {
@@ -37,8 +36,15 @@ public class SubsystemDAOImpl implements SubsystemDAO {
 	}
 
 	@Override
-	public List<String> getSubsystemNameList() {
-		return test;
+	public List<String> getSubsystemList() {
+		List<String> subsystemList = null;
+		try {
+			subsystemList = session.createQuery("select subsystem.subsystemName From Subsystem subsystem").list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return subsystemList;
 	}
 
 	@SuppressWarnings("unchecked")

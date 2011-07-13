@@ -1,34 +1,37 @@
 package the.web.actions;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import the.domain.model.User;
+import the.dao.subsystem.SubsystemDAO;
+import the.dao.subsystem.SubsystemDAOImpl;
 
 public class LoginAction extends ActionSupport {
 	
 	private String userName;
 	private String password;
 	private String subsystemName;
-	private ArrayList<String> subsystemList;
+	private List<String> subsystemList;
+	private SubsystemDAO subsystemDAO;
 
 	public String execute() {
+		subsystemList = subsystemDAO.getSubsystemList();
 		return "success";
 	}
 
-	//validate login information
-	public void validate() {
-		clearErrorsAndMessages();
-        if (getUserName().length() == 0) {
-            addFieldError("userName", "User Name is required");
-        } else if (!getUserName().equals("admin")) {
-            addFieldError("userName", "Invalid User");
-        }
-        if (getPassword().length() == 0) {
-            addFieldError("password", "password.required");
-        }
-    }
+	// public void validate() {
+	// 	clearErrorsAndMessages();
+ //        if (getUserName().length() == 0) {
+ //            addFieldError("userName", "User Name is required");
+ //        } else if (!getUserName().equals("admin")) {
+ //            addFieldError("userName", "Invalid User");
+ //        }
+ //        if (getPassword().length() == 0) {
+ //            addFieldError("password", "password.required");
+ //        }
+ //    }
 
 	public String getUserName() {
 		return this.userName;
@@ -54,12 +57,15 @@ public class LoginAction extends ActionSupport {
 		this.subsystemName = subsystemName;    	
 	}
 
-	public ArrayList<String> getSubsystemList() {
+	public List<String> getSubsystemList() {
 		return this.subsystemList;
 	}
 	
-	public void setSubsystemList(ArrayList<String> subsystemList) {
+	public void setSubsystemList(List<String> subsystemList) {
 		this.subsystemList = subsystemList;    	
 	}
 	
+	public void setSubsystemDAO(SubsystemDAO subsystemDAO) {
+		this.subsystemDAO = subsystemDAO;    	
+	}
 }

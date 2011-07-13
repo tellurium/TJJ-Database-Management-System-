@@ -3,14 +3,19 @@
 <beans>
  	
  	<!-- Actions Configuration -->
-	<bean id="inflateSubsystemList" class="the.web.actions.InflateSubsystemList">
-		<property name="subsystemList">
-			<ref local="subsystemList" />
-		</property>
-	</bean>
 
-	<bean id="loginAction" class="the.web.actions.LoginAction">
-		
+ 	<!-- Index -->
+ 	<bean id="indexClass" class="the.web.actions.IndexAction">
+ 		<property name="subsystemDAO">
+			<ref local="subsystemDAOImpl" />
+		</property>
+ 	</bean>
+
+ 	<!-- Login -->
+	<bean id="loginClass" class="the.web.actions.LoginAction">
+		<property name="subsystemDAO">
+			<ref local="subsystemDAOImpl" />
+		</property>
 	</bean>
 
 	<!-- Subsystem -->
@@ -44,16 +49,5 @@
 		</property>
 	</bean>
 	<bean id="logDAOImpl" class="the.dao.log.LogDAOImpl"/>
-
-	<!-- Some instance bean for debug-->
-	<bean id="subsystemList" class="java.util.ArrayList">
-		<constructor-arg>
-			<list>
-				<value>jiangu</value>
-				<value>peiyouqi</value>
-				<value>diankong</value>
-			</list>
-		</constructor-arg>
-	</bean>
 
 </beans>

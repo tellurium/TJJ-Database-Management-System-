@@ -8,7 +8,7 @@ import java.util.List;
 public interface SubsystemDAO {
 	
 	void addSubsystem(Subsystem subsystem);
-	List<String> getSubsystemNameList();
+	List<String> getSubsystemList();
 	List<Subsystem> listSubsystem();
 	void deleteSubsystem(Integer id);
 	void updateSubsystem(Subsystem subsystem);

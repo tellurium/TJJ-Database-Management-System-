@@ -1,15 +1,15 @@
 <%@include file="inner/top-header.jsp" %>
-	<%
-		String s = resource.getString("introduction.title");
-	%>
-	<title>Index</title>
+	<title><s:text name="index.title" /></title>
 	<s:head />
+
 <%@include file="inner/middle.jsp" %>
-	<s:form action="loginAction">
+	
+	<h1><s:text name="index.title" /></h1>
+
+	<s:form action="login">
 		<s:textfield name="userName" label="User Name" />
 		<s:password name="password" label="Password" />
-		<s:select name="subsystemName" list="subsystemList"
-			headerKey="" headerValue="--------------" />
+		<s:select name="subsystemName" list="subsystemList" label="Select a subsystem" />
 		<s:submit />
 	</s:form>
 

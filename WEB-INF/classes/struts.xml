@@ -7,15 +7,15 @@
    <constant name="struts.custom.i18n.resources" value="MessageBundle" />
      
  	<package name="default" extends="hibernate-default" >
- 		
- 		   <!-- Inflate SubsystemList -->  
- 		   <action name="inflateSubsystemList" class="inflateSubsystemList">
-   			<result name="success">/WEB-INF/content/index.jsp</result>
-   		</action>
-  
+   
+         <!-- Index action -->
+         <action name="index" method="showIndex" class="indexClass">
+            <result name="success">/WEB-INF/content/index.jsp</result>
+         </action>
+     
   		   <!-- Login action -->
-   		<action name="loginAction" class="loginAction">
-   			<result name="input" type="chain">inflateSubsystemList</result>
+   		<action name="login" class="loginClass" >
+   			<result name="input" type="redirect">index</result>
    			<result name="success">/WEB-INF/content/introduction.jsp</result>
    			<result name="error">/error.jsp</result>
    		</action>

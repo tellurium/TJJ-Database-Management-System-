@@ -9,5 +9,4 @@
 		<h1>Title<h1>
 		<p>More details about the subsystem</p>
 	</div>
-
 <%@include file="inner/bottom-footer.jsp" %>

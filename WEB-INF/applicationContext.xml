@@ -9,8 +9,4 @@
 	<!-- Actions Configuration -->
 	<import resource="actionConfigurations.xml" />
 
-	 	
-	<!-- Some data instances for test -->
-	<import resource="testInstance.xml" />
-
 </beans>
