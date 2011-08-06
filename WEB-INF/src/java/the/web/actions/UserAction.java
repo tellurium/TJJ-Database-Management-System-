@@ -5,9 +5,11 @@ import java.util.ArrayList;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import the.dao.user.UserDAO;
-import the.dao.user.UserDAOImpl;
+import the.dao.BaseDAO;
+import the.dao.privilege.PrivilegeDAO;
+import the.dao.privilege.PrivilegeDAOImpl;
 import the.domain.model.User;
+import the.domain.model.Privilege;
 
 public class UserAction extends ActionSupport {
 
@@ -15,15 +17,18 @@ public class UserAction extends ActionSupport {
 
 	private User user = new User();
 	private List<User> userList = new ArrayList<User>();
-	private UserDAO userDAO = new UserDAOImpl();
+	private BaseDAO userDAO;
+	private PrivilegeDAO privilegeDAO = new PrivilegeDAOImpl();
+	private Integer privilegeId;
 
 
-	public void setUserDAO(UserDAO userDAO) {
+	public void setUserDAO(BaseDAO userDAO) {
 		this.userDAO = userDAO;    	
 	}
 
 	public String add() {
-		userDAO.addUser(user);
+		user.setPrivilege(privilegeDAO.getPrivilege(privilegeId));
+		userDAO.create(user);
 		return SUCCESS;
 	}
 
@@ -32,7 +37,7 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String list() {
-		userList = userDAO.listUser();
+		userList = userDAO.list();
 		return SUCCESS;
 	}
 	
@@ -52,6 +57,21 @@ public class UserAction extends ActionSupport {
 	public void setUserList(List<User> userList) {
 		this.userList = userList;    	
 	}
+
+	public Integer getPrivilegeId() {
+		return this.privilegeId;
+	}
 	
+	public void setPrivilegeId(Integer privilegeId) {
+		this.privilegeId = privilegeId;    	
+	}
+	
+	public PrivilegeDAO getPrivilegeDAO() {
+		return this.privilegeDAO;
+	}
+	
+	public void setPrivilegeDAO(PrivilegeDAO privilegeDAO) {
+		this.privilegeDAO = privilegeDAO;    	
+	}
 }
 

@@ -106,7 +106,7 @@ public class User implements java.io.Serializable {
 	
 
 	@ManyToOne(targetEntity=Privilege.class, cascade = CascadeType.ALL)
-	@JoinColumn(name="privilege_id")
+	@JoinColumn(name="privilege_id", nullable=false)
 	public Privilege getPrivilege() {
 		return this.privilege;
 	}

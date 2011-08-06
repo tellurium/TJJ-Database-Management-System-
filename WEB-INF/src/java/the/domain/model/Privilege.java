@@ -9,6 +9,9 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="privilege", uniqueConstraints = {@UniqueConstraint(columnNames={"privilege_name"})})
+@org.hibernate.annotations.Entity(
+		dynamicUpdate = true
+) // Hibernate will never update all the fields again
 public class Privilege implements java.io.Serializable {
 	
 	private Integer privilegeId;

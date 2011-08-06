@@ -39,8 +39,11 @@
 		<property name="userDAO">
 			<ref local="userDAOImpl" />
 		</property>
+		<property name="privilegeDAO">
+			<ref local="privilegeDAOImpl" />
+		</property>
 	</bean>
-	<bean id="userDAOImpl" class="the.dao.user.UserDAOImpl" />
+	<bean id="userDAOImpl" class="the.dao.UserDAOImplTest" />
 
 	<!-- Log -->
 	<bean id="logClass" class="the.web.actions.LogAction">

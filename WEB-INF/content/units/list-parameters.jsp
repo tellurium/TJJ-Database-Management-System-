@@ -1,3 +1,1 @@
-<s:text>Parameters</s:text>
-<!-- An iterator to list the parameters -->
-<s:text />
+<s:property value="subsystemName" /><s:text name="parameter.title"/>:

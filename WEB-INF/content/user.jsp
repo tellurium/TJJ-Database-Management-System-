@@ -18,7 +18,7 @@
 				<th>UserName</th>
 				<th>Gender</th>
 				<th>Email</th>
-				<!-- <th>Privilege</th> -->
+				<th>Privilege</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
@@ -26,10 +26,10 @@
 			<s:iterator value="userList" status="userStatus">
 				<tr
 					class="<s:if test="#userStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-					<td><s:property value="user.userName" /></td>
-					<td><s:property value="user.sex" /></td>
-					<td><s:property value="user.email" /></td>
-					<!-- <td><s:property value="privilege" /></td> -->
+					<td><s:property value="userName" /></td>
+					<td><s:property value="sex" /></td>
+					<td><s:property value="email" /></td>
+					<td><s:property value="privilege.privilegeId" /></td>
 					<td>
 						<a href="<s:url action="editSubsystem"><s:param name="userId" value="userId"/></s:url>">
 						Edit

@@ -1,2 +1,3 @@
 <!-- Neead an iterator -->
-<s:property  />
+
+<h3>Ready to list the attrs...</h3>

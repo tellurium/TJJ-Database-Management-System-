@@ -1,3 +1,1 @@
-<s:text>Parameter Picture</s:text>
-<s:url>
-</s:url>
+<h2><s:text name="parameter_picture.title" /></h2>

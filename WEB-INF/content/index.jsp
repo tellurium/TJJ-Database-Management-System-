@@ -13,5 +13,6 @@
 		<s:submit value="%{getText('submit.title')}" />
 	</s:form>
 
+	
 <%@include file="inner/bottom-footer.jsp" %>
 
