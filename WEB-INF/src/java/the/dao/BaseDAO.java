@@ -11,5 +11,6 @@ public interface BaseDAO<T> {
 	T read(Integer id);
 	void update(T changedObject);
 	void delete(Integer id);
+	void delete(T targetObject);
 	List<T> list();
 }

@@ -71,6 +71,18 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 	}
 
 	@Override
+	public void delete(T targetOjbect) {
+		try {
+			session.delete(targetOjbect);
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+	}
+
+	@Override
 	public List<T> list() {
 		List<T> objects = null;
 		try {

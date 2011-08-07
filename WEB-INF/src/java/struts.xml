@@ -4,6 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">  
 <struts>
 
+   <!-- Locale file -->
    <constant name="struts.custom.i18n.resources" value="MessageBundle" />
      
  	<package name="default" extends="hibernate-default" >
