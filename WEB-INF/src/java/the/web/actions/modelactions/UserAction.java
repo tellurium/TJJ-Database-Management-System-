@@ -13,18 +13,23 @@ public class UserAction<User> extends ModelAction {
 	// private PrivilegeDAO privilegeDAO = new PrivilegeDAOImpl();
 	// private Integer privilegeId;
 
+	@Override
+	protected void init() {
+		target = new the.domain.model.User();
+	}
+
 	public String list() {
-		//userList = userDAO.list();
+		userList = dao.list();
 		return SUCCESS;
 	}
 	
-	// public List<User> getUserList() {
-	// 	return this.userList;
-	// }
+	public List<User> getUserList() {
+		return this.userList;
+	}
 	
-	// public void setUserList(List<User> userList) {
-	// 	this.userList = userList;    	
-	// }
+	public void setUserList(List<User> userList) {
+		this.userList = userList;    	
+	}
 
 	// public Integer getPrivilegeId() {
 	// 	return this.privilegeId;

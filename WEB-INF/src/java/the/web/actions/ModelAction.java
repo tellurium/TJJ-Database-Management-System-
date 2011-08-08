@@ -2,9 +2,16 @@ package the.web.actions;
 
 import com.opensymphony.xwork2.ModelDriven;
 
-public class ModelAction<T> extends BaseAction implements ModelDriven<T> {
+public abstract class ModelAction<T> extends BaseAction implements ModelDriven<T> {
 	
-	private T target;
+	protected T target;
+
+	public ModelAction() {
+		super();
+		init();
+	}
+
+	protected abstract void init();
 
 	@Override
 	public T getModel() {

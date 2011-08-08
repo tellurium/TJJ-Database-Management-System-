@@ -5,10 +5,11 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import the.domain.model.User;
+import the.web.actions.BaseAction;
 // import the.dao.subsystem.SubsystemDAO;
 // import the.dao.subsystem.SubsystemDAOImpl;
 
-public class LoginAction extends ActionSupport {
+public class LoginAction extends BaseAction {
 	
 	// private String userName;
 	// private String password;

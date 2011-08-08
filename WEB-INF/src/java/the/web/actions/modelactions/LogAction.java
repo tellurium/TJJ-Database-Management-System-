@@ -9,6 +9,11 @@ public class LogAction<Log> extends ModelAction {
 	
 	private List<Log> logList;
 
+	@Override
+	protected void init() {
+		target = new the.domain.model.Log();
+	}
+
 	public String list() {
 		//
 		return SUCCESS;

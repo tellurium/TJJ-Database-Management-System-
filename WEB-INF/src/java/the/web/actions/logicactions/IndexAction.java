@@ -5,10 +5,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
 import java.util.ArrayList;
 
+import the.web.actions.BaseAction;
 // import the.dao.subsystem.SubsystemDAO;
 // import the.dao.subsystem.SubsystemDAOImpl;
 
-public class IndexAction extends ActionSupport {
+public class IndexAction extends BaseAction {
 
 	// private List<String> subsystemList = new ArrayList<String>();
 	// private SubsystemDAO subsystemDAO;

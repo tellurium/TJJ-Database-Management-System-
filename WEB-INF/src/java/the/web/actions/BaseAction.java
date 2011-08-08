@@ -6,7 +6,7 @@ import the.dao.BaseDAO;
 
 public class BaseAction extends ActionSupport {
 	
-	BaseDAO dao;
+	protected BaseDAO dao;
 
 	public BaseDAO getDao() {
 		return this.dao;

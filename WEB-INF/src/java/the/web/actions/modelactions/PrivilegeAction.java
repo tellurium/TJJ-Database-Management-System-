@@ -9,6 +9,11 @@ public class PrivilegeAction<Privilege> extends ModelAction {
 	
 	private List<Privilege> privilegeList;
 
+	@Override
+	protected void init() {
+		target = new the.domain.model.Privilege();
+	}
+
 	public String list() {
 		//privilegeList = privilegeDAO.listPrivilege();
 		return SUCCESS;

@@ -25,13 +25,13 @@
          </action>
 
    		<!-- Subsystem action -->
-   		<action name="addSubsystem" method="add" class="subsystemClass">
+   		<action name="addSubsystem" method="create" class="subsystemClass">
    			<result name="success" type="redirect">listSubsystem</result>
    		</action>
    		<action name="listSubsystem" method="list" class="subsystemClass">
    			<result name="success">/WEB-INF/content/subsystem.jsp</result>
    		</action>
-         <action name="editSubsystem" method="edit" class="subsystemClass">
+         <action name="updateSubsystem" method="update" class="subsystemClass">
             <result name="success">/WEB-INF/content/subsystem.jsp</result>
          </action>
          <action name="deleteSubsystem" method="delete" class="subsystemClass">
@@ -39,7 +39,7 @@
          </action>
 
          <!-- Privilege action -->
-         <action name="addPrivilege" method="add" class="privilegeClass">
+         <action name="addPrivilege" method="create" class="privilegeClass">
             <result name="success" type="redirect">listPrivilege</result>
          </action>
          <action name="listPrivilege" method="list" class="privilegeClass">
@@ -47,7 +47,7 @@
          </action>
 
          <!-- User action -->
-         <action name="addUser" method="add" class="userClass">
+         <action name="addUser" method="create" class="userClass">
             <result name="success" type="redirect">listUser</result>
          </action>
          <action name="listUser" method="list" class="userClass">
@@ -55,7 +55,7 @@
          </action>
 
          <!-- Log action -->
-         <action name="addLog" method="add" class="logClass">
+         <action name="addLog" method="create" class="logClass">
             <result name="success" type="redirect">listLog</result>
             <result name="input">/error.jsp</result>
          </action>

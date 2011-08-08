@@ -19,6 +19,11 @@ public class SubsystemAction<Subsystem> extends ModelAction {
 		return SUCCESS;
 	}
 
+	@Override 
+	protected void init() {
+		target = new the.domain.model.Subsystem();
+	}
+
 	// public String delete() {
 
 	// 	//get the 'subsystemId'
