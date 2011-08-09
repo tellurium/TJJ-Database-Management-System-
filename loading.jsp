@@ -1,5 +1,5 @@
 <%@include file="/WEB-INF/content/inner/top-header.jsp" %>
-	<META HTTP-EQUIV="Refresh" CONTENT="0;URL=index.action">
+	<META HTTP-EQUIV="Refresh" CONTENT="0;URL=index">
 <title><s:text name="loading.title" /></title>
 <%@include file="/WEB-INF/content/inner/middle.jsp" %>
 

@@ -7,6 +7,9 @@
  	<!-- Index -->
  	<bean id="indexClass" class="the.web.actions.logicactions.IndexAction">
  		<property name="dao">
+			<ref local="userDAOImpl" />
+		</property>
+		<property name="subsystemDAO">
 			<ref local="subsystemDAOImpl" />
 		</property>
  	</bean>

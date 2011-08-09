@@ -11,7 +11,7 @@
 		<s:submit />
 	</s:form>
 
-	<s:if test="userList.size() > 0">
+	<s:if test="lists.size() > 0">
 		<div class="content">
 		<table class="table" cellpadding="5px">
 			<tr class="even">
@@ -23,7 +23,7 @@
 				<th>Delete</th>
 			</tr>
 
-			<s:iterator value="userList" status="userStatus">
+			<s:iterator value="lists" status="userStatus">
 				<tr
 					class="<s:if test="#userStatus.odd == true ">odd</s:if><s:else>even</s:else>">
 					<td><s:property value="userName" /></td>

@@ -1,33 +1,33 @@
 package the.web.actions.logicactions;
 
-import com.opensymphony.xwork2.ActionSupport;
-
 import java.util.List;
-import java.util.ArrayList;
 
 import the.web.actions.BaseAction;
-// import the.dao.subsystem.SubsystemDAO;
-// import the.dao.subsystem.SubsystemDAOImpl;
+import the.dao.SubsystemDAO;
 
 public class IndexAction extends BaseAction {
 
-	// private List<String> subsystemList = new ArrayList<String>();
-	// private SubsystemDAO subsystemDAO;
+	private List<String> subsystemList;
+	private SubsystemDAO subsystemDAO;
 	
-	// public String showIndex() {
-	// 	subsystemList = subsystemDAO.getSubsystemList();
-	// 	return SUCCESS;
-	// }
+	public String showIndex() {
+		subsystemList = subsystemDAO.getSubsystemList();
+		return SUCCESS;
+	}
 
-	// public List<String> getSubsystemList() {
-	// 	return this.subsystemList;
-	// }
+	public List<String> getSubsystemList() {
+		return this.subsystemList;
+	}
 	
-	// public void setSubsystemList(List<String> subsystemList) {
-	// 	this.subsystemList = subsystemList;    	
-	// }
+	public void setSubsystemList(List<String> subsystemList) {
+		this.subsystemList = subsystemList;    	
+	}
+
+	public SubsystemDAO getSubsystemDAO() {
+		return this.subsystemDAO;
+	}
 	
-	// public void setSubsystemDAO(SubsystemDAO subsystemDAO) {
-	// 	this.subsystemDAO = subsystemDAO;    	
-	// }
+	public void setSubsystemDAO(SubsystemDAO subsystemDAO) {
+		this.subsystemDAO = subsystemDAO;    	
+	}	
 }
