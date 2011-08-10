@@ -4,5 +4,5 @@
 	<s:a href="#"><s:text name="user_management.title" /></s:a>
 	<s:a href="#"><s:text name="check_log.title" /></s:a>
 	<s:a href="#"><s:text name="modify_password.title" /></s:a>
-	<s:select name="subsystemName" label="%{getText('subsystem_list.hint')}" list="subsystemList" />
+	<s:action name="showSubsystemList" executeResult="true"/>
 	<s:submit value="%{getText('logout.title')}" />

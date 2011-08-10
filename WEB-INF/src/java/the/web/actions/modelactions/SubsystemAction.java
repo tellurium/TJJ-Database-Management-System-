@@ -12,12 +12,13 @@ import the.web.actions.ModelAction;
 
 public class SubsystemAction<Subsystem> extends ModelAction {
 	
-	private List<Subsystem> subsystemList;
+	// private List<String> subsystemList;
+	// private SubsystemDAO subsystemDAO;
 
-	public String list() {
-		//subsystemList = subsystemDAO.listSubsystem();
-		return SUCCESS;
-	}
+	// public String list() {
+	// 	subsystemList = subsystemDAO.getSubsystemList();
+	// 	return SUCCESS;
+	// }
 
 	@Override 
 	protected void init() {
@@ -32,11 +33,4 @@ public class SubsystemAction<Subsystem> extends ModelAction {
 	// 	return SUCCESS;
 	// }
 
-	public List<Subsystem> getSubsystemList() {
-		return this.subsystemList;
-	}
-	
-	public void setSubsystemList(List<Subsystem> subsystemList) {
-		this.subsystemList = subsystemList;    	
-	}
 }

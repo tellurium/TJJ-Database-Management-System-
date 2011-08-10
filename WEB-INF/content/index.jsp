@@ -9,7 +9,8 @@
 	<s:form action="login">
 		<s:textfield name="userName" label="%{getText('username.title')}" />
 		<s:password name="password" label="%{getText('password.title')}" />
-		<s:select name="subsystemName" list="subsystemList" label="%{getText('subsystem_list.hint')}" />
+		
+		<s:action name="showSubsystemList" executeResult="true"/>
 		<s:submit value="%{getText('submit.title')}" />
 	</s:form>
 

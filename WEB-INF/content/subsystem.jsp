@@ -8,7 +8,7 @@
 		<s:submit />
 	</s:form>
 
-	<s:if test="subsystemList.size() > 0">
+	<s:if test="lists.size() > 0">
 		<div class="content">
 		<table class="table" cellpadding="5px">
 			<tr class="even">
@@ -21,7 +21,7 @@
 				<th>Delete</th>
 			</tr>
 
-			<s:iterator value="subsystemList" status="subsystemStatus">
+			<s:iterator value="lists" status="subsystemStatus">
 				<tr
 					class="<s:if test="#subsystemStatus.odd == true ">odd</s:if><s:else>even</s:else>">
 					<td><s:property value="subsystemId" /></td>

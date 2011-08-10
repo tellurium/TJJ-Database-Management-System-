@@ -10,13 +10,17 @@
  	<package name="default" extends="hibernate-default" >
    
          <!-- Index action -->
-         <action name="index" method="showIndex" class="indexClass">
+         <action name="index" method="showLogForm" class="indexClass">
             <result name="success">/WEB-INF/content/index.jsp</result>
+         </action>
+         <action name="showSubsystemList" method="showIndex" class="indexClass">
+            <result name="success">/WEB-INF/content/subsystemList.jsp</result>
          </action>
      
   		   <!-- Login action -->
    		<action name="login" class="loginClass" >
-   			<result name="input" type="redirect">index</result>
+            <interceptor-ref name="defaultStack" />
+   			<result name="input">/WEB-INF/content/index.jsp</result>
    			<result name="success">/WEB-INF/content/query.jsp</result>
    			<result name="error">/error.jsp</result>
    		</action>

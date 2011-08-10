@@ -1,7 +1,7 @@
 <%@include file="inner/top-header.jsp" %>
 
 	<title><s:property value="subsystemName" /><s:text name="query.title" /></title>
-
+	<s:head />
 <%@include file="inner/middle.jsp" %>
 <%@include file="inner/navigator-bar.jsp" %>
 	
@@ -17,6 +17,5 @@
 	<%@include file="units/list-right-side.jsp" %>
 
 	<%@include file="units/list-parameters.jsp" %>
-
 
 <%@include file="inner/bottom-footer.jsp" %>

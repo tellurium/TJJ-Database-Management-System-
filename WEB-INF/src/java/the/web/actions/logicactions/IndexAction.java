@@ -15,6 +15,10 @@ public class IndexAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String showLogForm() {
+		return SUCCESS;
+	}
+
 	public List<String> getSubsystemList() {
 		return this.subsystemList;
 	}
