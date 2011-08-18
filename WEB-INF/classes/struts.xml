@@ -13,13 +13,10 @@
          <action name="index" method="showLogForm" class="indexClass">
             <result name="success">/WEB-INF/content/index.jsp</result>
          </action>
-         <action name="showSubsystemList" method="showIndex" class="indexClass">
-            <result name="success">/WEB-INF/content/subsystemList.jsp</result>
-         </action>
      
   		   <!-- Login action -->
    		<action name="login" class="loginClass" >
-            <interceptor-ref name="defaultStack" />
+            <interceptor-ref name="defaultStack" /> <!-- Add this line for the use of validate method -->
    			<result name="input">/WEB-INF/content/index.jsp</result>
    			<result name="success">/WEB-INF/content/query.jsp</result>
    			<result name="error">/error.jsp</result>
@@ -28,18 +25,35 @@
             <result name="success">/WEB-INF/content/introduction.jsp</result>
          </action>
 
-   		<!-- Subsystem action -->
-   		<action name="addSubsystem" method="create" class="subsystemClass">
-   			<result name="success" type="redirect">listSubsystem</result>
-   		</action>
-   		<action name="listSubsystem" method="list" class="subsystemClass">
-   			<result name="success">/WEB-INF/content/subsystem.jsp</result>
-   		</action>
+         <!-- Subsystem action -->
+         <action name="addSubsystem" method="create" class="subsystemClass">
+            <result name="success" type="redirect">listSubsystem</result>
+         </action>
+         <action name="listSubsystem" method="list" class="subsystemClass">
+            <result name="success">/WEB-INF/content/subsystem.jsp</result>
+         </action>
          <action name="updateSubsystem" method="update" class="subsystemClass">
             <result name="success">/WEB-INF/content/subsystem.jsp</result>
          </action>
          <action name="deleteSubsystem" method="delete" class="subsystemClass">
             <result name="success" type="redirect">listSubsystem</result>
+         </action>
+         <action name="showSubsystemList" method="showSubsystemList" class="subsystemClass">
+            <result name="success">/WEB-INF/content/units/subsystemList.jsp</result>
+         </action>
+
+         <!-- SubsystemAttr action -->
+         <action name="addSubsystemAttr" method="create" class="subsystemAttrClass">
+            <result name="success" type="redirect">listSubsystemAttr</result>
+         </action>
+         <action name="listSubsystemAttr" method="list" class="subsystemAttrClass">
+            <result name="success">/WEB-INF/content/subsystemAttr.jsp</result>
+         </action>
+         <action name="updateSubsystemAttr" method="update" class="subsystemAttrClass">
+            <result name="success">/WEB-INF/content/subsystemAttr.jsp</result>
+         </action>
+         <action name="deleteSubsystemAttr" method="delete" class="subsystemAttrClass">
+            <result name="success" type="redirect">listSubsystemAttr</result>
          </action>
 
          <!-- Privilege action -->
@@ -61,11 +75,11 @@
          <!-- Log action -->
          <action name="addLog" method="create" class="logClass">
             <result name="success" type="redirect">listLog</result>
-            <result name="input">/error.jsp</result>
+            <!-- <result name="input">/error.jsp</result> -->
          </action>
          <action name="listLog" method="list" class="logClass">
             <result name="success">/WEB-INF/content/log.jsp</result>
-            <result name="input">/error.jsp</result>
+            <!-- <result name="input">/error.jsp</result> -->
          </action>
 
  	</package>  

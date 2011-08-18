@@ -7,7 +7,7 @@ import com.opensymphony.xwork2.ModelDriven;
 public abstract class ModelAction<T> extends BaseAction implements ModelDriven<T> {
 	
 	protected T target;
-	protected List<T> lists;
+	protected List<T> list;
 
 	public ModelAction() {
 		super();
@@ -49,16 +49,16 @@ public abstract class ModelAction<T> extends BaseAction implements ModelDriven<T
 	}
 
 	public String list() {
-		lists = dao.list();
+		list = dao.list();
 		return SUCCESS;
 	}
 
+	public List<T> getList() {
+		return this.list;
+	}
 	
-	public List<T> getLists() {
-		return this.lists;
+	public void setList(List<T> list) {
+		this.list = list;    	
 	}
-								
-	public void setLists(List<T> lists) {
-		this.lists = lists;    	
-	}
+	
 }

@@ -19,5 +19,11 @@
 		<mapping class="the.domain.model.Subsystem" />
 		<mapping class="the.domain.model.Privilege" />
 		<mapping class="the.domain.model.Log" />
+		<mapping class="the.domain.model.SubsystemAttr" />
+		<mapping class="the.domain.model.SubsystemPic" />
+		<mapping class="the.domain.model.SubsystemPara" />
+		<mapping class="the.domain.model.SubsystemType" />
+		<mapping class="the.domain.model.SubsystemUnit" />
+				
 	</session-factory>
 </hibernate-configuration>

@@ -5,11 +5,11 @@ import java.util.List;
 import the.domain.model.Subsystem;
 import the.dao.SubsystemDAO;
 
-public class SubsystemDAOImpl<Subsystem> extends BaseDAOImpl implements SubsystemDAO {
-	
+public class SubsystemDAOImpl extends BaseDAOImpl<Subsystem> implements SubsystemDAO {
+
 	@Override
 	Class getKlass() {
-		return the.domain.model.Subsystem.class;
+		return Subsystem.class;
 	}
 
 	@Override
@@ -20,12 +20,15 @@ public class SubsystemDAOImpl<Subsystem> extends BaseDAOImpl implements Subsyste
 	@Override
 	public List<String> getSubsystemList() {
 		List<String> list = null;
+
 		try {
-			list = session.createQuery("select sub.subsystemName From Subsystem as sub").list();
+			list = session.createQuery("Select sub.subsystemName From Subsystem as sub").list();
 		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
 			e.printStackTrace();
 		}
-
 		return list;
 	}
 

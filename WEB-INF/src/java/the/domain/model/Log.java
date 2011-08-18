@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.OneToOne;
-import javax.persistence.JoinColumn;
 
 import java.util.Date;
 
@@ -14,20 +12,26 @@ import java.util.Date;
 @Table(name="log")
 public class Log implements java.io.Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private Integer logId;
 	private String discription;
 	private String event;
 	private String eventType;
 	private String download;
 	private Date time;
-
-	private User user;
+	private String userName;
 
 	public Log() {
 	}
 
+	public Log(String userName, String event) {
+		this.userName = userName;
+		this.event = event;
+	}
+
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=javax.persistence.GenerationType.IDENTITY)
 	@Column(name="log_id", nullable=false)
 	public Integer getLogId() {
 		return this.logId;
@@ -73,17 +77,16 @@ public class Log implements java.io.Serializable {
 		this.download = download;    	
 	}
 	
-	@OneToOne
-	@JoinColumn(name="user_id")
-	public User getUser() {
-		return this.user;
+	@Column(name="user_name", nullable=false)
+	public String getUserName() {
+		return this.userName;
 	}
 	
-	public void setUser(User user) {
-		this.user = user;    	
+	public void setUserName(String userName) {
+		this.userName = userName;    	
 	}
 	
-	@Column(name="time", columnDefinition="TIMESTAMP ", updatable = false)
+	@Column(name="time", columnDefinition="TIMESTAMP ", updatable=false)
 	public Date getTime() {
 		return this.time;
 	}

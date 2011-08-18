@@ -22,6 +22,8 @@ import java.util.Date;
 						 @UniqueConstraint(columnNames = "email")}
 )
 public class User implements java.io.Serializable {
+
+	private static final long serialVersionUID = 4L;
 	
 	private Integer userId;
 	private String userName;
@@ -49,7 +51,7 @@ public class User implements java.io.Serializable {
 	}
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=javax.persistence.GenerationType.IDENTITY)
 	@Column(name="user_id", nullable=false)
 	public Integer getUserId() {
 		return this.userId;
@@ -105,7 +107,7 @@ public class User implements java.io.Serializable {
 	}
 	
 
-	@ManyToOne(targetEntity=Privilege.class, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity=Privilege.class)
 	@JoinColumn(name="privilege_id", nullable=false)
 	public Privilege getPrivilege() {
 		return this.privilege;

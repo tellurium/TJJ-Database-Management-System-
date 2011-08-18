@@ -1,36 +1,31 @@
 package the.web.actions.modelactions;
 
 import java.util.List;
-import java.util.ArrayList;
-
-//import javax.servlet.http.HttpServletRequest;
-
-//import org.apache.struts2.ServletActionContext;
 
 import the.domain.model.Subsystem;
 import the.web.actions.ModelAction;
+import the.dao.SubsystemDAO;
 
-public class SubsystemAction<Subsystem> extends ModelAction {
-	
-	// private List<String> subsystemList;
-	// private SubsystemDAO subsystemDAO;
+public class SubsystemAction extends ModelAction<Subsystem> {
 
-	// public String list() {
-	// 	subsystemList = subsystemDAO.getSubsystemList();
-	// 	return SUCCESS;
-	// }
+	private List<String> subsystemList;
 
-	@Override 
+	@Override
 	protected void init() {
-		target = new the.domain.model.Subsystem();
+		target = new Subsystem();
 	}
 
-	// public String delete() {
+	public String showSubsystemList() {
+		subsystemList = ((SubsystemDAO) dao).getSubsystemList();
+		return SUCCESS;
+	}
 
-	// 	//get the 'subsystemId'
-	// 	HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get( ServletActionContext.HTTP_REQUEST);
-	// 	subsystemDAO.deleteSubsystem(Integer.parseInt( request.getParameter("subsystemId")));
-	// 	return SUCCESS;
-	// }
+	public List<String> getSubsystemList() {
+		return this.subsystemList;
+	}
+	
+	public void setSubsystemList(List<String> subsystemList) {
+		this.subsystemList = subsystemList;    	
+	}
 
 }

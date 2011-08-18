@@ -5,25 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.JoinColumn;
-import javax.persistence.FetchType;
 import javax.persistence.UniqueConstraint;
-import javax.persistence.TemporalType;
 
 import java.util.Date;
 
 @Entity
 @Table(name="subsystem", uniqueConstraints = {@UniqueConstraint(columnNames={"subsystem_name"})})
 public class Subsystem implements java.io.Serializable {
+
+	private static final long serialVersionUID = 3L;
 	
 	private Integer subsystemId;
 	private String subsystemName;
 	private String subsystemDescription;
 	private Date createTime;
-
-	private User createUser; 
+	private String userName; // Create user name
 
 	public Subsystem() {
 	}
@@ -33,7 +29,7 @@ public class Subsystem implements java.io.Serializable {
 	}
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=javax.persistence.GenerationType.IDENTITY)
 	@Column(name="subsystem_id", nullable=false)
 	public Integer getSubsystemId() {
 		return this.subsystemId;
@@ -43,14 +39,13 @@ public class Subsystem implements java.io.Serializable {
 		this.subsystemId = subsystemId;    	
 	}
 
-	@OneToOne
-	@JoinColumn(name="user_id")
-	public User getCreateUser() {
-		return this.createUser;
+	@Column(name="user_name", nullable=false)
+	public String getUserName() {
+		return this.userName;
 	}
 	
-	public void setCreateUser(User createUser) {
-		this.createUser = createUser;    	
+	public void setUserName(String userName) {
+		this.userName = userName;    	
 	}
 	
 	@Column(name="subsystem_name", nullable=false)

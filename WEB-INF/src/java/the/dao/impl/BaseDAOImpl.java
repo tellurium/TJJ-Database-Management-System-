@@ -38,7 +38,7 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 	public T read(Integer id) {
 		T target = null;
 		try {
-			target = (T) session.get(getClass(), id);
+			target = (T) session.get(getKlass(), id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -60,7 +60,7 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 	@Override
 	public void delete(Integer id) {
 		try {
-			T target = (T) session.get(getClass(), id);
+			T target = (T) session.get(getKlass(), id);
 			session.delete(target);
 		} catch (Exception e) {
 			if (transaction != null) {
@@ -86,8 +86,11 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 	public List<T> list() {
 		List<T> objects = null;
 		try {
-			objects = session.createQuery("From " + getClassName()).list();
+			objects = session.createQuery("From " + this.getClassName()).list();			
 		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
 			e.printStackTrace();
 		}
 

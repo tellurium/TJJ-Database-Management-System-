@@ -3,7 +3,7 @@
 	<s:head />
 
 <%@include file="inner/middle.jsp" %>
-	
+	<s:actionerror />
 	<h1><s:text name="index.title" /></h1>
 
 	<s:form action="login">

@@ -2,11 +2,11 @@ package the.dao.impl;
 
 import the.domain.model.Privilege;
 
-public class PrivilegeDAOImpl<Privilege> extends BaseDAOImpl {
+public class PrivilegeDAOImpl extends BaseDAOImpl<Privilege> {
 	
 	@Override	
 	Class getKlass() {
-		return the.domain.model.Privilege.class;
+		return Privilege.class;
 	}
 
 	@Override

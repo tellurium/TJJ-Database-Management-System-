@@ -3,7 +3,7 @@
 <%@include file="inner/middle.jsp" %>
 	
 	<s:form action="addLog" >
-		<s:textfield name="user" label="User Name" />
+		<s:textfield name="userName" label="User Name" />
 		<s:textfield name="event" label="Event" />
 		<s:textfield name="eventType" label="Event Type" />
 		<s:textfield name="discription" label="Discription" />
@@ -11,7 +11,7 @@
 		<s:submit />
 	</s:form>
 
-	<s:if test="logList.size() > 0">
+	<s:if test="list.size() > 0">
 		<div class="content">
 		<table class="table" cellpadding="5px">
 			<tr class="even">
@@ -23,10 +23,10 @@
 				<th>Download</th>
 			</tr>
 
-			<s:iterator value="logList" status="logStatus">
+			<s:iterator value="list" status="logStatus">
 				<tr
 					class="<s:if test="#logStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-					<td><s:property value="user" /></td>
+					<td><s:property value="userName" /></td>
 					<td><s:property value="event" /></td>
 					<td><s:property value="evnetType" /></td>
 					<td><s:property value="discription" /></td>

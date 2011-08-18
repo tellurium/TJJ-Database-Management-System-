@@ -11,8 +11,10 @@ import javax.persistence.UniqueConstraint;
 @Table(name="privilege", uniqueConstraints = {@UniqueConstraint(columnNames={"privilege_name"})})
 @org.hibernate.annotations.Entity(
 		dynamicUpdate = true
-) // Hibernate will never update all the fields again
+) // Hibernate will never update all the fields one time
 public class Privilege implements java.io.Serializable {
+
+	private static final long serialVersionUID = 2L; 
 	
 	private Integer privilegeId;
 	private String privilegeName;
@@ -27,7 +29,7 @@ public class Privilege implements java.io.Serializable {
 
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=javax.persistence.GenerationType.IDENTITY)
 	@Column(name="privilege_id", nullable=false)
 	public Integer getPrivilegeId() {
 		return this.privilegeId;

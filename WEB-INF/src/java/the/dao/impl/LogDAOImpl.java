@@ -2,11 +2,11 @@ package the.dao.impl;
 
 import the.domain.model.Log;
 
-public class LogDAOImpl<Log> extends BaseDAOImpl {
+public class LogDAOImpl extends BaseDAOImpl<Log> {
 
 	@Override
 	Class getKlass() {
-		return the.domain.model.Log.class;
+		return Log.class;
 	}
 
 	@Override

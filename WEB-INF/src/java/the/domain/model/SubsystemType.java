@@ -17,14 +17,17 @@ import java.util.ArrayList;
 @Table(name="subsystem_type")
 public class SubsystemType implements java.io.Serializable {
 
+	private static final long serialVersionUID = 5L;
+
 	private Integer subsystemTypeId;
 	private List<SubsystemAttr> attrs = new ArrayList<SubsystemAttr>();
 	private List<SubsystemUnit> units = new ArrayList<SubsystemUnit>();
 	private List<SubsystemPic> pics = new ArrayList<SubsystemPic>();
 	private List<SubsystemPara> paras = new ArrayList<SubsystemPara>();
-	private Subsystem subsystem;
 	private String type;
-	
+
+	private String subsystemName;
+		
 	@Id
 	@GeneratedValue
 	@Column(name="subsystem_type_id")
@@ -45,17 +48,16 @@ public class SubsystemType implements java.io.Serializable {
 		this.type = type;    	
 	}
 
-	@ManyToOne
-	@JoinColumn(name="subsystem_id")
-	public Subsystem getSubsystem() {
-		return this.subsystem;
+	@Column(name="subsystem_name")
+	public String getSubsystemName() {
+		return this.subsystemName;
 	}
 	
-	public void setSubsystem(Subsystem subsystem) {
-		this.subsystem = subsystem;    	
+	public void setSubsystemName(String subsystemName) {
+		this.subsystemName = subsystemName;    	
 	}
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subsystemType")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subsystemTypeId")
 	public List<SubsystemAttr> getAttrs() {
 		return this.attrs;
 	}
@@ -64,7 +66,7 @@ public class SubsystemType implements java.io.Serializable {
 		this.attrs = attrs;    	
 	}
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subsystemType")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subsystemTypeId")
 	public List<SubsystemUnit> getUnits() {
 		return this.units;
 	}
@@ -73,7 +75,7 @@ public class SubsystemType implements java.io.Serializable {
 		this.units = units;    	
 	}
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subsystemType")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subsystemTypeId")
 	public List<SubsystemPic> getPics() {
 		return this.pics;
 	}
@@ -82,7 +84,7 @@ public class SubsystemType implements java.io.Serializable {
 		this.pics = pics;    	
 	}
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subsystemType")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subsystemTypeId")
 	public List<SubsystemPara> getParas() {
 		return this.paras;
 	}

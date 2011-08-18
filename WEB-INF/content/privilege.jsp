@@ -1,5 +1,5 @@
 <%@include file="inner/top-header.jsp" %>
-	<title>Subsystem</title>
+	<title>Privilege</title>
 <%@include file="inner/middle.jsp" %>
 	
 	<s:form action="addPrivilege">
@@ -8,7 +8,7 @@
 		<s:submit />
 	</s:form>
 
-	<s:if test="privilegeList.size() > 0">
+	<s:if test="list.size() > 0">
 		<div class="content">
 		<table class="table" cellpadding="5px">
 			<tr class="even">
@@ -17,7 +17,7 @@
 				<th>Description</th>
 			</tr>
 
-			<s:iterator value="privilegeList" status="privilegeStatus">
+			<s:iterator value="list" status="privilegeStatus">
 				<tr
 					class="<s:if test="#privilegeStatus.odd == true ">odd</s:if><s:else>even</s:else>">
 					<td><s:property value="privilegeId" /></td>

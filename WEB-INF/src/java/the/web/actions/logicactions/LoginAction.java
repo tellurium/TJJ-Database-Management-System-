@@ -2,35 +2,46 @@ package the.web.actions.logicactions;
 
 import java.util.List;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import the.domain.model.User;
 import the.web.actions.BaseAction;
-import the.dao.SubsystemDAO;
+import the.dao.UserDAO;
 
-public class LoginAction extends BaseAction {
+public class LoginAction extends ActionSupport {
 	
 	private String userName;
 	private String password;
 	private String subsystemName;
-	private SubsystemDAO subsystemDAO;
 
 	public LoginAction(){
 	}
 
 	public String execute() {
-		//subsystemList = subsystemDAO.getSubsystemList();
 		return SUCCESS;
 	}
 
 	public void validate() {
+		User user = null;
+
+		// First level validate
 		clearErrorsAndMessages();
         if (getUserName().length() == 0) {
             addFieldError("userName", "User Name is required");
-        } else if (!getUserName().equals("admin")) {
-            addFieldError("userName", "Invalid User");
+            return ;
         }
+  		
         if (getPassword().length() == 0) {
-            addFieldError("password", "password.required");
+            addFieldError("userName", "Password is required");
+            return ;
         }
+
+        // Validate the password
+        // user = ((UserDAO) dao).getUserByName("hello");
+        // if (user == null || !getPassword().equals(user.getPassword())) {
+        // 	addActionError(user.getUserName() + " # " + user.getPassword());
+        // }
+        
     }
 
  	public String showIntroduction() {
@@ -59,9 +70,5 @@ public class LoginAction extends BaseAction {
 	
 	public void setSubsystemName(String subsystemName) {
 		this.subsystemName = subsystemName;    	
-	}
-	
-	public void setSubsystemDAO(SubsystemDAO subsystemDAO) {
-		this.subsystemDAO = subsystemDAO;    	
 	}
 }

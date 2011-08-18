@@ -7,18 +7,16 @@ import the.domain.model.User;
 import the.domain.model.Privilege;
 import the.web.actions.ModelAction;
 
-public class UserAction<User> extends ModelAction {
+public class UserAction extends ModelAction<User> {
 
-	//private List<User> userList;
 	// private PrivilegeDAO privilegeDAO = new PrivilegeDAOImpl();
 	// private Integer privilegeId;
 	
 	@Override
 	protected void init() {
-		target = new the.domain.model.User();
+		target = new User();
 	}
 	
-
 	// public Integer getPrivilegeId() {
 	// 	return this.privilegeId;
 	// }
