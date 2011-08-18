@@ -3,6 +3,8 @@
 	<title><s:property value="subsystemName" /><s:text name="query.title" /></title>
 	<s:head />
 <%@include file="inner/middle.jsp" %>
+	
+
 <%@include file="inner/navigator-bar.jsp" %>
 	
 	<s:form action="query" >
