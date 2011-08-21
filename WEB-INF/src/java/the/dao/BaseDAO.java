@@ -6,6 +6,7 @@ public interface BaseDAO<T> {
 
 	void create(T newObject);
 	T read(Integer id);
+	T read(String name);
 	void update(T changedObject);
 	void delete(Integer id);
 	void delete(T targetObject);

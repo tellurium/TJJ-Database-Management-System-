@@ -21,6 +21,7 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 	// Get the Class for the session.get() method
 	abstract Class getKlass();
 	abstract String getClassName();
+	abstract String getPropertyName();
 
 	@Override
 	public void create(T newObject) {
@@ -39,6 +40,23 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 		T target = null;
 		try {
 			target = (T) session.get(getKlass(), id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return target;
+	}
+
+	@Override
+	public T read(String name) {
+		String property = getPropertyName();
+		if (property.equals("")) {
+			return null;
+		}
+		
+		T target = null;
+		try {
+			target = (T) session.createQuery("From " + getClassName() 
+					+ " where " + property + "='" + name + "'").list().get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -96,5 +114,4 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 
 		return objects;
 	}
-
 }

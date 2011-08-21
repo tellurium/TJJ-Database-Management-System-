@@ -3,11 +3,11 @@
 <%@include file="inner/middle.jsp" %>
 
 	<s:form action="addUser" >
-		<s:textfield name="user.userName" label="User Name" />
-		<s:textfield name="user.sex" label="Gender" />
-		<s:textfield name="user.email" label="Email" />
-		<s:password name="user.password" label="Password" />
-		<s:textfield name="privilegeId" label="Privilege" />
+		<s:textfield name="userName" label="User Name" />
+		<s:textfield name="sex" label="Gender" />
+		<s:textfield name="email" label="Email" />
+		<s:password name="password" label="Password" />
+		<s:action name="showPrivilegeList" executeResult="true"/>
 		<s:submit />
 	</s:form>
 

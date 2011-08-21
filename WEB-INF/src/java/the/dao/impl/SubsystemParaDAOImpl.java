@@ -14,4 +14,9 @@ public class SubsystemParaDAOImpl extends BaseDAOImpl<SubsystemPara> {
 		return "SubsystemPara";
 	}
 
+	@Override
+	String getPropertyName() {
+		return "subsystemParaName";
+	}
+
 }

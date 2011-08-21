@@ -18,6 +18,11 @@ public class SubsystemDAOImpl extends BaseDAOImpl<Subsystem> implements Subsyste
 	}
 
 	@Override
+	String getPropertyName() {
+		return "subsystemName";
+	}
+
+	@Override
 	public List<String> getSubsystemList() {
 		List<String> list = null;
 

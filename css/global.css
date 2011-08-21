@@ -1,6 +1,46 @@
 body {
 	width: 80%;
 	margin: 15px auto;
-	background-color: #ddd;
+	background-color: #999;
+}
+
+#navigator_bar {
+	position: relative;
+	margin: 15px;
+	top: 0px;
+}
+
+#navigator_bar input {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+#subsystem_list {
+	position: absolute;
+	top: 0;
+	right: 100px;
+}
+
+table{
+	width: 600px;
+	border-collapse: collapse;
+}
+
+th, td{
+	border: none;
+}
+
+th{
+	background-color: #000;
+	color: #fff;
+}
+
+tr:nth-of-type(even){
+	background-color: #f3f3f3;
+}
+
+tr:nth-of-type(odd){
+	background-color: #DDD;
 }
 

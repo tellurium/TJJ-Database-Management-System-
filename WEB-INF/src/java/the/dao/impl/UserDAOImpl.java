@@ -1,5 +1,7 @@
 package the.dao.impl;
 
+import java.util.List;
+
 import the.domain.model.User;
 import the.dao.UserDAO;
 
@@ -16,18 +18,13 @@ public class UserDAOImpl extends BaseDAOImpl<User> implements UserDAO {
 	}
 
 	@Override
-	public User getUserByName(String userName) {
+	String getPropertyName() {
+		return "userName";
+	}
 
-		User user = null;
-		try {
-			user = read(1);
-		} catch (Exception e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		}
-		return user;
+	@Override
+	public User getUserByName(String userName) {
+		return read(userName);
 	}
 
 }

@@ -7,12 +7,15 @@ import com.opensymphony.xwork2.ActionSupport;
 import the.domain.model.User;
 import the.web.actions.BaseAction;
 import the.dao.UserDAO;
+import the.dao.BaseDAO;
 
 public class LoginAction extends ActionSupport {
 	
 	private String userName;
 	private String password;
 	private String subsystemName;
+
+	private BaseDAO userDAO;
 
 	public LoginAction(){
 	}
@@ -37,14 +40,18 @@ public class LoginAction extends ActionSupport {
         }
 
         // Validate the password
-        // user = ((UserDAO) dao).getUserByName("hello");
-        // if (user == null || !getPassword().equals(user.getPassword())) {
-        // 	addActionError(user.getUserName() + " # " + user.getPassword());
-        // }
+        user = (User) userDAO.read(userName);
+        if (user == null || !getPassword().equals(user.getPassword())) {
+        	addActionError("User Name or password is wrong");
+        }
         
     }
 
  	public String showIntroduction() {
+ 		return SUCCESS;
+ 	}
+
+ 	public String showQuery() {
  		return SUCCESS;
  	}
 
@@ -70,5 +77,13 @@ public class LoginAction extends ActionSupport {
 	
 	public void setSubsystemName(String subsystemName) {
 		this.subsystemName = subsystemName;    	
+	}
+
+	public BaseDAO getUserDAO() {
+		return this.userDAO;
+	}
+	
+	public void setUserDAO(BaseDAO userDAO) {
+		this.userDAO = userDAO;    	
 	}
 }

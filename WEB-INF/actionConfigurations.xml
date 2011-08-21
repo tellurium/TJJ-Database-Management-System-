@@ -11,7 +11,9 @@
 
  	<!-- Login -->
 	<bean id="loginClass" class="the.web.actions.logicactions.LoginAction">
-		
+		<property name="userDAO">
+			<ref local="userDAOImpl" />
+		</property>
 	</bean>
 	
 	<!-- Subsystem -->
@@ -35,6 +37,9 @@
 		<property name="dao">
 			<ref local="privilegeDAOImpl" />
 		</property>
+		<property name="privilegeDAO">
+			<ref local="privilegeDAOImpl" />
+		</property>
 	</bean>
 	<bean id="privilegeDAOImpl" class="the.dao.impl.PrivilegeDAOImpl" />
 
@@ -43,9 +48,9 @@
 		<property name="dao">
 			<ref local="userDAOImpl" />
 		</property>
-		<!-- <property name="privilegeDAO">
+		<property name="privilegeDAO">
 			<ref local="privilegeDAOImpl" />
-		</property> -->
+		</property>
 	</bean>
 	<bean id="userDAOImpl" class="the.dao.impl.UserDAOImpl" />
 

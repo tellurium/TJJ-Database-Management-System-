@@ -18,11 +18,14 @@
    		<action name="login" class="loginClass" >
             <interceptor-ref name="defaultStack" /> <!-- Add this line for the use of validate method -->
    			<result name="input">/WEB-INF/content/index.jsp</result>
-   			<result name="success">/WEB-INF/content/query.jsp</result>
+   			<result name="success" type="redirect">showQuery</result>
    			<result name="error">/error.jsp</result>
    		</action>
          <action name="introduction" method="showIntroduction" class="loginClass" >
             <result name="success">/WEB-INF/content/introduction.jsp</result>
+         </action>
+         <action name="showQuery" method="showQuery" class="loginClass">
+            <result name="success">/WEB-INF/content/query.jsp</result>
          </action>
 
          <!-- Subsystem action -->
@@ -62,6 +65,9 @@
          </action>
          <action name="listPrivilege" method="list" class="privilegeClass">
             <result name="success">/WEB-INF/content/privilege.jsp</result>
+         </action>
+         <action name="showPrivilegeList" method="showPrivilegeList" class="privilegeClass">
+            <result name="success">/WEB-INF/content/units/privilegeList.jsp</result>
          </action>
 
          <!-- User action -->

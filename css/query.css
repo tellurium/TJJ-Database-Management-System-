@@ -1,0 +1,38 @@
+body {
+	position: relative;
+}
+
+#input-type {
+	
+}
+
+#list-attrs {
+	position: relative;
+	margin: 10px;
+}
+
+#parameter-picture {
+	float: left;
+	width: 80%;
+	height: 300px;
+}
+
+#parameter-picture-img {
+	width: 200px;
+	height: 200px;
+	overflow: scroll;
+}
+
+#list-right-side {
+	margin: 60px 20px;
+	float: right;
+}
+
+#list-right-side button {
+	margin: 5px;
+}
+
+#list-parameters {
+	width: 80%;
+	margin-top: 10px;
+}

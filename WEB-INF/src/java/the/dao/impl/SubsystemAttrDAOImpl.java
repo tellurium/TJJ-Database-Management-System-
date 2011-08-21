@@ -14,4 +14,9 @@ public class SubsystemAttrDAOImpl extends BaseDAOImpl<SubsystemAttr> {
 		return "SubsystemAttr";
 	}
 
+	@Override
+	String getPropertyName() {
+		return "subsystemAttrName";
+	}
+
 }

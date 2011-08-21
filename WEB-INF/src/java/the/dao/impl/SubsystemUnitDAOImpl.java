@@ -14,4 +14,9 @@ public class SubsystemUnitDAOImpl extends BaseDAOImpl<SubsystemUnit> {
 		return "SubsystemUnit";
 	}
 
+	@Override
+	String getPropertyName() {
+		return "subsystemUnitName";
+	}
+
 }
