@@ -18,13 +18,8 @@ public class UserDAOImpl extends BaseDAOImpl<User> implements UserDAO {
 	}
 
 	@Override
-	String getPropertyName() {
-		return "userName";
-	}
-
-	@Override
 	public User getUserByName(String userName) {
-		return read(userName);
+		return read("userName", userName);
 	}
 
 }

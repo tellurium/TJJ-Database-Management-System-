@@ -43,11 +43,13 @@ public class User implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public User(String userName, String	sex, String email, Privilege privilege) {
+	public User(String userName, String	sex, String password, 
+			String email, Privilege privilege) {
 		this.userName = userName;
 		this.sex = sex;
 		this.email = email;
 		this.privilege = privilege;
+		this.password = password;
 	}
 
 	@Id

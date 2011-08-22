@@ -14,9 +14,4 @@ public class SubsystemPicDAOImpl extends BaseDAOImpl<SubsystemPic> {
 		return "SubsystemPic";
 	}
 
-	@Override
-	String getPropertyName() {
-		return "subsystemPicName";
-	}
-
 }

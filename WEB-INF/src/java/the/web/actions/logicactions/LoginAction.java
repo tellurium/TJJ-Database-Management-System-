@@ -5,17 +5,14 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import the.domain.model.User;
-import the.web.actions.BaseAction;
 import the.dao.UserDAO;
-import the.dao.BaseDAO;
 
 public class LoginAction extends ActionSupport {
 	
 	private String userName;
 	private String password;
 	private String subsystemName;
-
-	private BaseDAO userDAO;
+	private UserDAO userDAO;
 
 	public LoginAction(){
 	}
@@ -40,7 +37,7 @@ public class LoginAction extends ActionSupport {
         }
 
         // Validate the password
-        user = (User) userDAO.read(userName);
+        user = userDAO.getUserByName(userName);
         if (user == null || !getPassword().equals(user.getPassword())) {
         	addActionError("User Name or password is wrong");
         }
@@ -79,11 +76,11 @@ public class LoginAction extends ActionSupport {
 		this.subsystemName = subsystemName;    	
 	}
 
-	public BaseDAO getUserDAO() {
+	public UserDAO getUserDAO() {
 		return this.userDAO;
 	}
 	
-	public void setUserDAO(BaseDAO userDAO) {
+	public void setUserDAO(UserDAO userDAO) {
 		this.userDAO = userDAO;    	
 	}
 }

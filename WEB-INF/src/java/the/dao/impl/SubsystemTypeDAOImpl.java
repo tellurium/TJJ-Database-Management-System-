@@ -14,9 +14,4 @@ public class SubsystemTypeDAOImpl extends BaseDAOImpl<SubsystemType> {
 		return "SubsystemType";
 	}
 
-	@Override
-	String getPropertyName() {
-		return "";
-	}
-
 }

@@ -4,6 +4,13 @@
  	
  	<!-- Actions Configuration -->
 
+ 	<!-- For Test -->
+ 	<bean id="testClass" class="the.web.actions.TestAction">
+ 		<property name="dao">
+			<ref local="userDAOImpl" />
+		</property>
+ 	</bean>
+
  	<!-- Index -->
  	<bean id="indexClass" class="the.web.actions.logicactions.IndexAction">
  		
@@ -22,7 +29,9 @@
 			<ref local="subsystemDAOImpl" />
 		</property>
 	</bean>
-	<bean id="subsystemDAOImpl" class="the.dao.impl.SubsystemDAOImpl" />
+	<bean id="subsystemDAOImpl" class="the.dao.impl.SubsystemDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 	<!-- SubsystemAttr -->
 	<bean id="subsystemAttrClass" class="the.web.actions.modelactions.SubsystemAttrAction">
@@ -30,7 +39,9 @@
 			<ref local="subsystemAttrDAOImpl" />
 		</property>
 	</bean>
-	<bean id="subsystemAttrDAOImpl" class="the.dao.impl.SubsystemAttrDAOImpl" />
+	<bean id="subsystemAttrDAOImpl" class="the.dao.impl.SubsystemAttrDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 	<!-- Privilege -->
 	<bean id="privilegeClass" class="the.web.actions.modelactions.PrivilegeAction">
@@ -41,7 +52,9 @@
 			<ref local="privilegeDAOImpl" />
 		</property>
 	</bean>
-	<bean id="privilegeDAOImpl" class="the.dao.impl.PrivilegeDAOImpl" />
+	<bean id="privilegeDAOImpl" class="the.dao.impl.PrivilegeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 	<!-- User -->
 	<bean id="userClass" class="the.web.actions.modelactions.UserAction">
@@ -52,7 +65,9 @@
 			<ref local="privilegeDAOImpl" />
 		</property>
 	</bean>
-	<bean id="userDAOImpl" class="the.dao.impl.UserDAOImpl" />
+	<bean id="userDAOImpl" class="the.dao.impl.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 	<!-- Log -->
 	<bean id="logClass" class="the.web.actions.modelactions.LogAction">
@@ -60,6 +75,8 @@
 			<ref local="logDAOImpl" />
 		</property>
 	</bean>
-	<bean id="logDAOImpl" class="the.dao.impl.LogDAOImpl"/>
+	<bean id="logDAOImpl" class="the.dao.impl.LogDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 </beans>

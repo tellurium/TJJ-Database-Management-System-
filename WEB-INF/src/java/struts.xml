@@ -8,6 +8,11 @@
    <constant name="struts.custom.i18n.resources" value="MessageBundle" />
      
  	<package name="default" extends="hibernate-default" >
+
+         <!-- *** Just for test *** -->
+         <action name="test" method="testAll" class="testClass">
+            <result name="success">/error.jsp</result>
+         </action>
    
          <!-- Index action -->
          <action name="index" method="showLogForm" class="indexClass">

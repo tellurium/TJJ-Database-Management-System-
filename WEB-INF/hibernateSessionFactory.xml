@@ -3,14 +3,14 @@
 <beans>
  
 	<!-- Hibernate configurations -->
-	<!-- <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://localhost/704_dev"/>
+		<property name="url" value="jdbc:mysql://localhost/704_dev?characterEncoding=UTF-8"/>
 		<property name="username" value="root"/>
 		<property name="password" value="123456"/>
 	</bean>	
 
-	<bean id="mySessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="myDataSource" />
 		<property name="annotatedClasses">
 			<list>
@@ -18,35 +18,20 @@
 				<value>the.domain.model.Privilege</value>
 				<value>the.domain.model.Subsystem</value>
 				<value>the.domain.model.Log</value>
+				<value>the.domain.model.SubsystemAttr</value>
+				<value>the.domain.model.SubsystemPic</value>
+				<value>the.domain.model.SubsystemPara</value>
+				<value>the.domain.model.SubsystemType</value>
+				<value>the.domain.model.SubsystemUnit</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect"> org.hibernate.dialect.MySQLDialect </prop>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
-	</bean> -->
-
-	<!-- User -->
-	<!-- <bean id="userClass" class="the.web.actions.UserAction">
-		<property name="userDAO">
-			<ref local="userDAOImpl" />
-		</property>
 	</bean>
-	<bean id="userDAOImpl" class="the.dao.user.UserDAOImpl">
-		<property name="sessionFactory" ref="mySessionFactory"/>
-	</bean> -->
-
-	<!-- Log -->
-	<!-- <bean id="logClass" class="the.web.actions.LogAction">
-		<property name="logDAO">
-			<ref local="logDAOImpl" />
-		</property>
-	</bean>
-	<bean id="logDAOImpl" class="the.dao.log.LogDAOImpl">
-		<property name="sessionFactory" ref="mySessionFactory"/>
-	</bean> -->
  
 </beans>

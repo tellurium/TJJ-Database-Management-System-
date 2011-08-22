@@ -13,10 +13,4 @@ public class LogDAOImpl extends BaseDAOImpl<Log> {
 	String getClassName() {
 		return "Log";
 	}
-
-	@Override
-	String getPropertyName() {
-		return "";
-	}
-
 }
