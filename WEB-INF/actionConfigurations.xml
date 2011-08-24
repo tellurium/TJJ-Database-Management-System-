@@ -48,9 +48,6 @@
 		<property name="dao">
 			<ref local="privilegeDAOImpl" />
 		</property>
-		<property name="privilegeDAO">
-			<ref local="privilegeDAOImpl" />
-		</property>
 	</bean>
 	<bean id="privilegeDAOImpl" class="the.dao.impl.PrivilegeDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />

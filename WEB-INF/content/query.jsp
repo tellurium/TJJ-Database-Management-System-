@@ -7,12 +7,7 @@
 
 <%@include file="inner/navigator-bar.jsp" %>
 	
-	<div id="input-type" >
-		<s:form action="query" >
-			<s:textfield name="subsystemType" label="%{getText('input_type.title')}" />
-			<s:submit value="%{getText('query.title')}" />
-		</s:form>
-	</div>
+	<%@include file="units/query-type.jsp" %>
 	
 	<%@include file="units/list-attrs.jsp" %>
 		

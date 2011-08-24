@@ -3,8 +3,8 @@
 <%@include file="inner/middle.jsp" %>
 	
 	<s:form action="addSubsystemAttr" >
-		<s:textfield name="attrName" label="Attr Name" />
-		<s:textfield name="attrValue" label="Attr Value" />
+		<s:textfield name="subsystemAttrName" label="Attr Name" />
+		<s:textfield name="subsystemAttrValue" label="Attr Value" />
 		<s:submit />
 	</s:form>
 
@@ -19,8 +19,8 @@
 			<s:iterator value="list" status="subsystemAttrStatus">
 				<tr
 					class="<s:if test="#subsystemAttrStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-					<td><s:property value="attrName" /></td>
-					<td><s:property value="attrValue" /></td>
+					<td><s:property value="subsystemAttrName" /></td>
+					<td><s:property value="subsystemAttrValue" /></td>
 				</tr>
 			</s:iterator>
 		</table>

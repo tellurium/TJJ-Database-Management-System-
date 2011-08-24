@@ -22,10 +22,16 @@ public class LoginAction extends ActionSupport {
 	}
 
 	public void validate() {
+		clearErrorsAndMessages();
+
+		if (subsystemName.equals("-1")) {
+			addActionError(getText("please_select_subsystem.title"));
+		}
+
 		User user = null;
 
 		// First level validate
-		clearErrorsAndMessages();
+		
         if (getUserName().length() == 0) {
             addFieldError("userName", "User Name is required");
             return ;
@@ -39,7 +45,7 @@ public class LoginAction extends ActionSupport {
         // Validate the password
         user = userDAO.getUserByName(userName);
         if (user == null || !getPassword().equals(user.getPassword())) {
-        	addActionError("User Name or password is wrong");
+        	addActionError(getText("username_or_password_wrong.title"));
         }
         
     }

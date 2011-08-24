@@ -23,6 +23,8 @@
 				<value>the.domain.model.SubsystemPara</value>
 				<value>the.domain.model.SubsystemType</value>
 				<value>the.domain.model.SubsystemUnit</value>
+				<value>the.domain.model.SubsystemAttrName</value>
+				<value>the.domain.model.SubsystemParaName</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
