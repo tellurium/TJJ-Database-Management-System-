@@ -17,7 +17,11 @@ public abstract class BaseDAOImpl<T> extends HibernateDaoSupport implements Base
 
 	@Override
 	public void create(T newObject) {
-		getHibernateTemplate().save(newObject);
+		try	{
+			getHibernateTemplate().save(newObject);
+		} catch (org.springframework.dao.DataIntegrityViolationException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -27,8 +31,12 @@ public abstract class BaseDAOImpl<T> extends HibernateDaoSupport implements Base
 
 	@Override
 	public T read(String property, String name) {
-		return (T) getHibernateTemplate().
-				find("From " + getClassName() + " where " + property + "='" + name + "'").get(0);
+		List<T> list = null;
+		list = getHibernateTemplate().find("From " + getClassName() + " where " + property + "='" + name + "'");
+		if (list.size() > 0) {
+			return (T) list.get(0);
+		}
+		return null;
 	}
 
 	@Override

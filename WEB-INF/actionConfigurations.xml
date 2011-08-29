@@ -6,9 +6,7 @@
 
  	<!-- For Test -->
  	<bean id="testClass" class="the.web.actions.TestAction">
- 		<property name="dao">
-			<ref local="userDAOImpl" />
-		</property>
+ 		<property name="dao" ref="userDAOImpl" />
  	</bean>
 
  	<!-- Index -->
@@ -18,16 +16,18 @@
 
  	<!-- Login -->
 	<bean id="loginClass" class="the.web.actions.logicactions.LoginAction">
-		<property name="userDAO">
-			<ref local="userDAOImpl" />
-		</property>
+		<property name="userDAO" ref="userDAOImpl" />
+	</bean>
+
+	<!-- Logic -->
+	<bean id="logicClass" class="the.web.actions.logicactions.LogicAction">
+
 	</bean>
 	
 	<!-- Subsystem -->
 	<bean id="subsystemClass" class="the.web.actions.modelactions.SubsystemAction">
-		<property name="dao">
-			<ref local="subsystemDAOImpl" />
-		</property>
+		<property name="dao" ref="subsystemDAOImpl" />
+		<property name="subsystemDAO" ref="subsystemDAOImpl" />
 	</bean>
 	<bean id="subsystemDAOImpl" class="the.dao.impl.SubsystemDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -35,9 +35,7 @@
 
 	<!-- SubsystemAttr -->
 	<bean id="subsystemAttrClass" class="the.web.actions.modelactions.SubsystemAttrAction">
-		<property name="dao">
-			<ref local="subsystemAttrDAOImpl" />
-		</property>
+		<property name="dao" ref="subsystemAttrDAOImpl" />
 	</bean>
 	<bean id="subsystemAttrDAOImpl" class="the.dao.impl.SubsystemAttrDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -45,9 +43,8 @@
 
 	<!-- Privilege -->
 	<bean id="privilegeClass" class="the.web.actions.modelactions.PrivilegeAction">
-		<property name="dao">
-			<ref local="privilegeDAOImpl" />
-		</property>
+		<property name="dao" ref="privilegeDAOImpl" />
+		<property name="privilegeDAO" ref="privilegeDAOImpl" />
 	</bean>
 	<bean id="privilegeDAOImpl" class="the.dao.impl.PrivilegeDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -55,12 +52,8 @@
 
 	<!-- User -->
 	<bean id="userClass" class="the.web.actions.modelactions.UserAction">
-		<property name="dao">
-			<ref local="userDAOImpl" />
-		</property>
-		<property name="privilegeDAO">
-			<ref local="privilegeDAOImpl" />
-		</property>
+		<property name="dao" ref="userDAOImpl" />
+		<property name="privilegeDAO" ref="privilegeDAOImpl" />
 	</bean>
 	<bean id="userDAOImpl" class="the.dao.impl.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -68,11 +61,25 @@
 
 	<!-- Log -->
 	<bean id="logClass" class="the.web.actions.modelactions.LogAction">
-		<property name="dao">
-			<ref local="logDAOImpl" />
-		</property>
+		<property name="dao" ref="logDAOImpl" />
 	</bean>
 	<bean id="logDAOImpl" class="the.dao.impl.LogDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- SubsystemAttrName -->
+	<bean id="subsystemAttrNameClass" class="the.web.actions.modelactions.SubsystemAttrNameAction">
+		<property name="dao" ref="subsystemAttrNameDAOImpl" />
+	</bean>
+	<bean id="subsystemAttrNameDAOImpl" class="the.dao.impl.SubsystemAttrNameDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- SubsystemParaName -->
+	<bean id="subsystemParaNameClass" class="the.web.actions.modelactions.SubsystemParaNameAction">
+		<property name="dao" ref="subsystemParaNameDAOImpl" />
+	</bean>
+	<bean id="subsystemParaNameDAOImpl" class="the.dao.impl.SubsystemParaNameDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 

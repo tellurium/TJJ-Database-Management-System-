@@ -9,6 +9,7 @@ import the.dao.SubsystemDAO;
 public class SubsystemAction extends ModelAction<Subsystem> {
 
 	private List<String> subsystemList;
+	private SubsystemDAO subsystemDAO;
 
 	@Override
 	protected void init() {
@@ -16,7 +17,7 @@ public class SubsystemAction extends ModelAction<Subsystem> {
 	}
 
 	public String showSubsystemList() {
-		subsystemList = ((SubsystemDAO) dao).getSubsystemList();
+		subsystemList = subsystemDAO.getSubsystemList();
 		return SUCCESS;
 	}
 
@@ -26,6 +27,14 @@ public class SubsystemAction extends ModelAction<Subsystem> {
 	
 	public void setSubsystemList(List<String> subsystemList) {
 		this.subsystemList = subsystemList;    	
+	}
+
+	public SubsystemDAO getSubsystemDAO() {
+		return this.subsystemDAO;
+	}
+	
+	public void setSubsystemDAO(SubsystemDAO subsystemDAO) {
+		this.subsystemDAO = subsystemDAO;    	
 	}
 
 }

@@ -1,8 +1,10 @@
 package the.web.actions.logicactions;
 
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ActionContext;
 
 import the.domain.model.User;
 import the.dao.UserDAO;
@@ -18,6 +20,11 @@ public class LoginAction extends ActionSupport {
 	}
 
 	public String execute() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		session.put("USER_NAME", userName);
+		session.put("IS_LOGIN", true);
+		session.put("SUBSYSTEM_NAME", subsystemName);
 		return SUCCESS;
 	}
 
@@ -49,14 +56,6 @@ public class LoginAction extends ActionSupport {
         }
         
     }
-
- 	public String showIntroduction() {
- 		return SUCCESS;
- 	}
-
- 	public String showQuery() {
- 		return SUCCESS;
- 	}
 
 	public String getUserName() {
 		return this.userName;

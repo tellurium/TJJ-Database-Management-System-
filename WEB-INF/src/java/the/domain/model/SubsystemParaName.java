@@ -17,13 +17,14 @@ public class SubsystemParaName implements java.io.Serializable {
 	private String subsystemParaName;
 
 	// The Subsystem which this attr belongs to
-	private Integer subsystemId;
+	private String subsystemName;
 		
 	public SubsystemParaName() {
 	}
 
-	public SubsystemParaName(String subsystemParaName) {
+	public SubsystemParaName(String subsystemParaName, String subsystemName) {
 		this.subsystemParaName = subsystemParaName;
+		this.subsystemName = subsystemName;
 	}
 
 	@Id
@@ -46,12 +47,12 @@ public class SubsystemParaName implements java.io.Serializable {
 		this.subsystemParaName = subsystemParaName;    	
 	}
 	
-	@Column(name="subsystem_id", nullable=false)
-	public Integer getSubsystemId() {
-		return this.subsystemId;
+	@Column(name="subsystem_name", nullable=false)
+	public String getSubsystemName() {
+		return this.subsystemName;
 	}
 	
-	public void setSubsystemId(Integer subsystemId) {
-		this.subsystemId = subsystemId;    	
+	public void setSubsystemName(String subsystemName) {
+		this.subsystemName = subsystemName;    	
 	}
 }

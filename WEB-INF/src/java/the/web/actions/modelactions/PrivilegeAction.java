@@ -9,6 +9,7 @@ import the.dao.PrivilegeDAO;
 public class PrivilegeAction extends ModelAction<Privilege> {
 
 	private List<String> privilegeList;
+	private PrivilegeDAO privilegeDAO;
 
 	@Override
 	protected void init() {
@@ -16,7 +17,7 @@ public class PrivilegeAction extends ModelAction<Privilege> {
 	}
 
 	public String showPrivilegeList() {
-		privilegeList = ((PrivilegeDAO) dao).getPrivilegeList();
+		privilegeList = privilegeDAO.getPrivilegeList();
 		return SUCCESS;
 	}
 
@@ -26,6 +27,14 @@ public class PrivilegeAction extends ModelAction<Privilege> {
 	
 	public void setPrivilegeList(List<String> privilegeList) {
 		this.privilegeList = privilegeList;    	
+	}
+
+	public PrivilegeDAO getPrivilegeDAO() {
+		return this.privilegeDAO;
+	}
+	
+	public void setPrivilegeDAO(PrivilegeDAO privilegeDAO) {
+		this.privilegeDAO = privilegeDAO;    	
 	}
 
 }
