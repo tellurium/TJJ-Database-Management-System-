@@ -1,6 +1,6 @@
-<%@include file="inner/top-header.jsp" %>
+<%@include file="../inner/top-header.jsp" %>
 	<title>Privilege</title>
-<%@include file="inner/middle.jsp" %>
+<%@include file="../inner/middle.jsp" %>
 	
 	<s:form action="addPrivilege">
 		<s:textfield name="privilegeName" label="Privilege Name" />
@@ -29,4 +29,4 @@
 		</div>
 	</s:if>
 
-<%@include file="inner/bottom-footer.jsp" %>
+<%@include file="../inner/bottom-footer.jsp" %>

@@ -1,6 +1,6 @@
-<%@include file="inner/top-header.jsp" %>
+<%@include file="../inner/top-header.jsp" %>
 	<title>Subsystem</title>
-<%@include file="inner/middle.jsp" %>
+<%@include file="../inner/middle.jsp" %>
 	
 	<s:form action="addSubsystemAttrName" >
 		<s:textfield name="subsystemAttrName" label="Attr Name" />
@@ -27,4 +27,4 @@
 		</div>
 	</s:if>
 
-<%@include file="inner/bottom-footer.jsp" %>
+<%@include file="../inner/bottom-footer.jsp" %>

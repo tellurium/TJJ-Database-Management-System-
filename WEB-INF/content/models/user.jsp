@@ -1,6 +1,6 @@
-<%@include file="inner/top-header.jsp" %>
+<%@include file="../inner/top-header.jsp" %>
 	<title>User</title>
-<%@include file="inner/middle.jsp" %>
+<%@include file="../inner/middle.jsp" %>
 
 	<s:form action="addUser" >
 		<s:textfield name="userName" label="User Name" />
@@ -46,4 +46,4 @@
 		</div>
 	</s:if>
 
-<%@include file="inner/bottom-footer.jsp" %>
+<%@include file="../inner/bottom-footer.jsp" %>

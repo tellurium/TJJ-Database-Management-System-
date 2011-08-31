@@ -40,12 +40,12 @@ public class LoginAction extends ActionSupport {
 		// First level validate
 		
         if (getUserName().length() == 0) {
-            addFieldError("userName", "User Name is required");
+            addFieldError("userName", getText("password.required"));
             return ;
         }
   		
         if (getPassword().length() == 0) {
-            addFieldError("userName", "Password is required");
+            addFieldError("userName", getText("username.required"));
             return ;
         }
 

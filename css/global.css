@@ -22,25 +22,29 @@ body {
 	right: 100px;
 }
 
-table{
+table {
 	width: 600px;
 	border-collapse: collapse;
 }
 
-th, td{
+th, td {
 	border: none;
 }
 
-th{
+th {
 	background-color: #000;
 	color: #fff;
 }
 
-tr:nth-of-type(even){
+textarea {
+	width: 80%;
+}
+
+tr:nth-of-type(even) {
 	background-color: #f3f3f3;
 }
 
-tr:nth-of-type(odd){
+tr:nth-of-type(odd) {
 	background-color: #DDD;
 }
 

@@ -9,9 +9,13 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ActionContext;
 
+import the.dao.SubsystemDAO;
+
 public class LogicAction extends ActionSupport {
 
 	private String subsystemName;
+	private String subsystemDiscription;
+	private SubsystemDAO subsystemDAO;
 
 	public void initLogicAction() {
 		ActionContext ctx=ActionContext.getContext();
@@ -21,6 +25,7 @@ public class LogicAction extends ActionSupport {
 
 	public String showIntroduction() {
 		initLogicAction();
+		subsystemDiscription = subsystemDAO.getSubsystemByName(subsystemName).getSubsystemDescription();
  		return SUCCESS;
  	}
 
@@ -29,12 +34,55 @@ public class LogicAction extends ActionSupport {
  		return SUCCESS;
  	}
 
+ 	public String manageSubsytem() {
+ 		return SUCCESS;
+ 	}
+
+ 	public String addType() {
+ 		return SUCCESS;
+ 	}
+
+ 	public String updateType() {
+ 		return SUCCESS;
+ 	}
+
+ 	public String manageUser() {
+ 		return SUCCESS;
+ 	}
+
+ 	public String showLog() {
+ 		return SUCCESS;
+ 	}
+
+
+
+
+ 	/* 
+ 	 * All the beans 
+ 	 */
+
  	public String getSubsystemName() {
 		return this.subsystemName;
 	}
 	
 	public void setSubsystemName(String subsystemName) {
 		this.subsystemName = subsystemName;    	
+	}
+
+	public SubsystemDAO getSubsystemDAO() {
+		return this.subsystemDAO;
+	}
+	
+	public void setSubsystemDAO(SubsystemDAO subsystemDAO) {
+		this.subsystemDAO = subsystemDAO;    	
+	}
+
+	public String getSubsystemDiscription() {
+		return this.subsystemDiscription;
+	}
+	
+	public void setSubsystemDiscription(String subsystemDiscription) {
+		this.subsystemDiscription = subsystemDiscription;    	
 	}
 
 }

@@ -43,8 +43,8 @@ public abstract class ModelAction<T> extends BaseAction implements ModelDriven<T
 		return SUCCESS;
 	}
 
-	public String delete() {
-		dao.delete(target);
+	public String delete(T object) {
+		dao.delete(object);
 		return SUCCESS;
 	}
 

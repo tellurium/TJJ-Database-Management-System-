@@ -22,4 +22,25 @@ public class SubsystemDAOImpl extends BaseDAOImpl<Subsystem> implements Subsyste
 		return getHibernateTemplate().find("Select sub.subsystemName From Subsystem as sub");
 	}
 
+	@Override
+	public List<Subsystem> listAll(){
+		return list();
+	}
+
+	@Override
+	public Subsystem getSubsystemById(Integer id) {
+		return read(id);
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		delete(id);
+	}
+
+	@Override
+	public Subsystem getSubsystemByName(String subsystemName) {
+		return read("subsystemName", subsystemName);
+	}
+
+
 }

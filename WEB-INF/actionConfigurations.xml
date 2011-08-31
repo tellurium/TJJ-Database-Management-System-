@@ -21,13 +21,14 @@
 
 	<!-- Logic -->
 	<bean id="logicClass" class="the.web.actions.logicactions.LogicAction">
-
+		<property name="subsystemDAO" ref="subsystemDAOImpl" />
 	</bean>
 	
 	<!-- Subsystem -->
 	<bean id="subsystemClass" class="the.web.actions.modelactions.SubsystemAction">
 		<property name="dao" ref="subsystemDAOImpl" />
 		<property name="subsystemDAO" ref="subsystemDAOImpl" />
+		<property name="subsystemAttrNameDAO" ref="subsystemAttrNameDAOImpl" />
 	</bean>
 	<bean id="subsystemDAOImpl" class="the.dao.impl.SubsystemDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
