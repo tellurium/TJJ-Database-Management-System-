@@ -22,4 +22,19 @@ public class UserDAOImpl extends BaseDAOImpl<User> implements UserDAO {
 		return read("userName", userName);
 	}
 
+	@Override
+	public User getUserById(Integer id) {
+		return read(id);
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		delete(id);
+	}
+
+	@Override
+	public void saveOrUpdate(User user) {
+		getHibernateTemplate().saveOrUpdate(user);
+	}
+
 }

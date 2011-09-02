@@ -24,10 +24,8 @@
       <!-- Global results redirect to index page -->
       <global-results>
             <result name="login">/WEB-INF/content/index.jsp</result>
+            <result name="error">/error.jsp</result>
       </global-results>
-
-
-
 
 
       <!-- *** Just for test, Please do not forget to delete it!!!!!!!!!!!!!!!!!! *** -->
@@ -53,7 +51,7 @@
 
       <!-- Logic action -->
       <action name="introduction" method="showIntroduction" class="logicClass" >
-         <!-- <interceptor-ref name="auth" /> -->
+         <interceptor-ref name="auth" />
          <result name="success">/WEB-INF/content/introduction.jsp</result>
       </action>
       <action name="showQuery" method="showQuery" class="logicClass">
@@ -69,10 +67,13 @@
          <result name="success">/WEB-INF/content/models/subsystemType.jsp</result>
       </action>
       <action name="userManager" method="manageUser" class="logicClass">
-         <result name="success">/WEB-INF/content/models/user.jsp</result>
+         <result name="success">/WEB-INF/content/userManager.jsp</result>
       </action>
       <action name="logViewer" method="showLog" class="logicClass">
-         <result name="success">/WEB-INF/content/models/log.jsp</result>
+         <result name="success">/WEB-INF/content/logViewer.jsp</result>
+      </action>
+      <action name="passwordChanger" method="changePassword" class="logicClass">
+         <result name="success">/WEB-INF/content/passwordChanger.jsp</result>
       </action>
 
 
@@ -132,20 +133,30 @@
 
       <!-- User action -->
       <action name="addUser" method="create" class="userClass">
-         <result name="success" type="redirect">listUser</result>
+         <result name="success" type="redirect">userManager</result>
       </action>
       <action name="listUser" method="list" class="userClass">
          <result name="success">/WEB-INF/content/models/user.jsp</result>
       </action>
+      <action name="updateUser" method="update" class="userClass">
+         <result name="success" type="redirect">userManager</result>
+      </action>
+      <action name="deleteUser" method="delete" class="userClass">
+         <result name="success" type="redirect">userManager</result>
+      </action>
+      <action name="changePassword" method="changePassword" class="userClass">
+         <result name="success" >/WEB-INF/content/units/changePassword.jsp</result>
+      </action>
+      <action name="submitPassword" method="submitPassword" class="userClass">
+         <result name="success" type="redirect">passwordChanger</result>
+      </action>
 
       <!-- Log action -->
       <action name="addLog" method="create" class="logClass">
-         <result name="success" type="redirect">listLog</result>
-         <!-- <result name="input">/error.jsp</result> -->
+         <result name="success" type="redirect">logViewer</result>
       </action>
       <action name="listLog" method="list" class="logClass">
          <result name="success">/WEB-INF/content/models/log.jsp</result>
-         <!-- <result name="input">/error.jsp</result> -->
       </action>
 
       <!-- SubsystemAttrName action -->

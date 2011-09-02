@@ -1,15 +1,6 @@
 <%@include file="../inner/top-header.jsp" %>
-	<title>Subsystem</title>
+	<title></title>
 <%@include file="../inner/middle.jsp" %>
-	
-	<s:form action="addLog" >
-		<s:textfield name="userName" label="User Name" />
-		<s:textfield name="event" label="Event" />
-		<s:textfield name="eventType" label="Event Type" />
-		<s:textfield name="discription" label="Discription" />
-		<s:textfield name="download" label="Download" />
-		<s:submit />
-	</s:form>
 
 	<s:if test="list.size() > 0">
 		<div class="content">
@@ -37,5 +28,8 @@
 		</table>
 		</div>
 	</s:if>
+	<s:else>
+		<s:text name="have_no.title" /><s:text name="log.title" />
+	</s:else>
 
 <%@include file="../inner/bottom-footer.jsp" %>

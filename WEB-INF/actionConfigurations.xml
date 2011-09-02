@@ -54,6 +54,7 @@
 	<!-- User -->
 	<bean id="userClass" class="the.web.actions.modelactions.UserAction">
 		<property name="dao" ref="userDAOImpl" />
+		<property name="userDAO" ref="userDAOImpl" />
 		<property name="privilegeDAO" ref="privilegeDAOImpl" />
 	</bean>
 	<bean id="userDAOImpl" class="the.dao.impl.UserDAOImpl">

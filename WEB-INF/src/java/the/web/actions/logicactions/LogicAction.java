@@ -4,18 +4,22 @@
 
 package the.web.actions.logicactions;
 
+import java.util.List;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ActionContext;
 
 import the.dao.SubsystemDAO;
+import the.dao.SubsystemAttrNameDAO;
 
 public class LogicAction extends ActionSupport {
 
 	private String subsystemName;
 	private String subsystemDiscription;
 	private SubsystemDAO subsystemDAO;
+	private SubsystemAttrNameDAO subsystemAttrNameDAO;
+	private List<String> subsystemAttrNameList;
 
 	public void initLogicAction() {
 		ActionContext ctx=ActionContext.getContext();
@@ -31,6 +35,7 @@ public class LogicAction extends ActionSupport {
 
  	public String showQuery() {
  		initLogicAction();
+ 		// subsystemAttrNameList = subsystemAttrNameDAO. 
  		return SUCCESS;
  	}
 
@@ -51,6 +56,10 @@ public class LogicAction extends ActionSupport {
  	}
 
  	public String showLog() {
+ 		return SUCCESS;
+ 	}
+
+ 	public String changePassword() {
  		return SUCCESS;
  	}
 
@@ -83,6 +92,14 @@ public class LogicAction extends ActionSupport {
 	
 	public void setSubsystemDiscription(String subsystemDiscription) {
 		this.subsystemDiscription = subsystemDiscription;    	
+	}
+
+	public List<String> getSubsystemAttrNameList() {
+		return this.subsystemAttrNameList;
+	}
+	
+	public void setSubsystemAttrNameList(List<String> subsystemAttrNameList) {
+		this.subsystemAttrNameList = subsystemAttrNameList;    	
 	}
 
 }

@@ -1,15 +1,8 @@
 <%@include file="../inner/top-header.jsp" %>
 	<title>User</title>
 <%@include file="../inner/middle.jsp" %>
-
-	<s:form action="addUser" >
-		<s:textfield name="userName" label="User Name" />
-		<s:textfield name="sex" label="Gender" />
-		<s:textfield name="email" label="Email" />
-		<s:password name="password" label="Password" />
-		<s:action name="showPrivilegeList" executeResult="true"/>
-		<s:submit />
-	</s:form>
+	
+	<h1><s:text name="user.title" /><s:text name="list.title" /></h1>
 
 	<s:if test="list.size() > 0">
 		<div class="content">
@@ -31,12 +24,12 @@
 					<td><s:property value="email" /></td>
 					<td><s:property value="privilege.privilegeId" /></td>
 					<td>
-						<a href="<s:url action="editSubsystem"><s:param name="userId" value="userId"/></s:url>">
+						<a href="<s:url action="updateUser"><s:param name="userId" value="userId"/></s:url>">
 						Edit
 						</a>
 					</td>
 					<td>
-						<a href="<s:url action="deleteSubsystem"><s:param name="usedId" value="userId" /></s:url>">
+						<a href="<s:url action="deleteUser"><s:param name="userId" value="userId" /></s:url>">
 						Delete
 						</a>
 					</td>
@@ -45,5 +38,14 @@
 		</table>
 		</div>
 	</s:if>
+	<br/>
+	<s:form action="addUser" >
+		<s:textfield name="userName" label="User Name" />
+		<s:textfield name="sex" label="Gender" />
+		<s:textfield name="email" label="Email" />
+		<s:password name="password" label="Password" />
+		<s:action name="showPrivilegeList" executeResult="true"/>
+		<s:submit value="%{getText('add.title')}" />
+	</s:form>
 
 <%@include file="../inner/bottom-footer.jsp" %>
