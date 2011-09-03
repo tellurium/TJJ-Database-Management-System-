@@ -26,7 +26,7 @@ public class SubsystemType implements java.io.Serializable {
 	private List<SubsystemPara> paras = new ArrayList<SubsystemPara>();
 	private String type;
 
-	private String subsystemName;
+	private Integer subsystemId;
 		
 	@Id
 	@GeneratedValue
@@ -48,13 +48,13 @@ public class SubsystemType implements java.io.Serializable {
 		this.type = type;    	
 	}
 
-	@Column(name="subsystem_name")
-	public String getSubsystemName() {
-		return this.subsystemName;
+	@Column(name="subsystem_id")
+	public Integer getSubsystemId() {
+		return this.subsystemId;
 	}
 	
-	public void setSubsystemName(String subsystemName) {
-		this.subsystemName = subsystemName;    	
+	public void setSubsystemId(Integer subsystemId) {
+		this.subsystemId = subsystemId;    	
 	}
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subsystemTypeId")

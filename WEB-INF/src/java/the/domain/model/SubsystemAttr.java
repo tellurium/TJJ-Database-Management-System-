@@ -13,7 +13,7 @@ public class SubsystemAttr implements java.io.Serializable {
 	private static final long serialVersionUID = 6L;
 
 	private Integer subsystemAttrId;
-	private String subsystemAttrName;
+	private Integer subsystemAttrNameId;
 	private String subsystemAttrValue;
 
 	// The Subsystem which this attr belongs to
@@ -22,8 +22,12 @@ public class SubsystemAttr implements java.io.Serializable {
 	public SubsystemAttr() {
 	}
 
-	public SubsystemAttr(String subsystemAttrName, String subsystemAttrValue) {
-		this.subsystemAttrName = subsystemAttrName;
+	public SubsystemAttr(Integer subsystemAttrNameId) {
+		this.subsystemAttrNameId = subsystemAttrNameId;
+	}
+
+	public SubsystemAttr(Integer subsystemAttrNameId, String subsystemAttrValue) {
+		this.subsystemAttrNameId = subsystemAttrNameId;
 		this.subsystemAttrValue = subsystemAttrValue;
 	}
 
@@ -37,14 +41,14 @@ public class SubsystemAttr implements java.io.Serializable {
 	public void setSubsystemAttrId(Integer subsystemAttrId) {
 		this.subsystemAttrId = subsystemAttrId;    	
 	}
-	
-	@Column(name="subsystem_attr_name")
-	public String getSubsystemAttrName() {
-		return this.subsystemAttrName;
+
+	@Column(name="subsystem_attr_name_id")
+	public Integer getSubsystemAttrNameId() {
+		return this.subsystemAttrNameId;
 	}
 	
-	public void setSubsystemAttrName(String subsystemAttrName) {
-		this.subsystemAttrName = subsystemAttrName;    	
+	public void setSubsystemAttrNameId(Integer subsystemAttrNameId) {
+		this.subsystemAttrNameId = subsystemAttrNameId;    	
 	}
 	
 	@Column(name="subsystem_attr_value")
@@ -64,5 +68,5 @@ public class SubsystemAttr implements java.io.Serializable {
 	public void setSubsystemTypeId(Integer subsystemTypeId) {
 		this.subsystemTypeId = subsystemTypeId;    	
 	}
-									  
+
 }

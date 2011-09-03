@@ -1,8 +1,9 @@
 package the.dao.impl;
 
 import the.domain.model.SubsystemPara;
+import the.dao.SubsystemParaDAO;
 
-public class SubsystemParaDAOImpl extends BaseDAOImpl<SubsystemPara> {
+public class SubsystemParaDAOImpl extends BaseDAOImpl<SubsystemPara> implements SubsystemParaDAO {
 
 	@Override
 	Class getKlass() {

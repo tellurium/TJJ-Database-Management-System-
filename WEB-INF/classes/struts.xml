@@ -46,7 +46,6 @@
          <interceptor-ref name="defaultStack" /> <!-- Add this line for the use of validate method -->
    		<result name="input">/WEB-INF/content/index.jsp</result>
    		<result name="success" type="redirect">showQuery</result>
-   		<result name="error">/error.jsp</result>
    	</action>
 
       <!-- Logic action -->
@@ -55,16 +54,16 @@
          <result name="success">/WEB-INF/content/introduction.jsp</result>
       </action>
       <action name="showQuery" method="showQuery" class="logicClass">
-         <result name="success">/WEB-INF/content/query.jsp</result>
+         <result name="success" type="redirect">showSubsystemType</result>
       </action>
       <action name="subsystemManager" method="manageSubsytem" class="logicClass">
          <result name="success">/WEB-INF/content/subsystemManager.jsp</result>
       </action>
       <action name="addType" method="addType" class="logicClass">
-         <result name="success">/WEB-INF/content/models/subsystemType.jsp</result>
+         <result name="success" type="redirect">showAddSubsystemTypePage</result>
       </action>
       <action name="updateType" method="updateType" class="logicClass">
-         <result name="success">/WEB-INF/content/models/subsystemType.jsp</result>
+         <result name="success" type="redirect">showUpdateSubsystemTypePage</result>
       </action>
       <action name="userManager" method="manageUser" class="logicClass">
          <result name="success">/WEB-INF/content/userManager.jsp</result>
@@ -174,6 +173,21 @@
       <action name="listSubsystemParaName" method="list" class="subsystemParaNameClass">
          <result name="success">/WEB-INF/content/models/subsystemParaName.jsp</result>
       </action>
+
+      <!-- SubsystemType action -->
+      <action name="showSubsystemType" method="showType" class="subsystemTypeClass">
+         <result name="success">/WEB-INF/content/models/subsystemType.jsp</result>
+      </action>
+      <action name="showAddSubsystemTypePage" method="showAddPage" class="subsystemTypeClass">
+         <result name="success">/WEB-INF/content/addSubsystemType.jsp</result>
+      </action>
+      <action name="showUpdateSubsystemTypePage" method="showUpdatePage" class="subsystemTypeClass">
+         <result name="success">/WEB-INF/content/updateSubsystemType.jsp</result>
+      </action>
+      <action name="addSubsystemType" method="add" class="subsystemTypeClass">
+         <result name="success" type="redirect">showSubsystemType</result>
+      </action>
+
 
  	</package>  
 </struts>     

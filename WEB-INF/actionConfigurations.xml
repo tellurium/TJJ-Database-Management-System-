@@ -42,6 +42,11 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<!-- SubsystemPara -->
+	<bean id="subsystemParaDAOImpl" class="the.dao.impl.SubsystemParaDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
 	<!-- Privilege -->
 	<bean id="privilegeClass" class="the.web.actions.modelactions.PrivilegeAction">
 		<property name="dao" ref="privilegeDAOImpl" />
@@ -82,6 +87,20 @@
 		<property name="dao" ref="subsystemParaNameDAOImpl" />
 	</bean>
 	<bean id="subsystemParaNameDAOImpl" class="the.dao.impl.SubsystemParaNameDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- SubsystemType -->
+	<bean id="subsystemTypeClass" class="the.web.actions.modelactions.SubsystemTypeAction">
+		<property name="dao" ref="subsystemTypeDAOImpl" />
+		<property name="subsystemDAO" ref="subsystemDAOImpl" />
+		<property name="subsystemAttrDAO" ref="subsystemAttrDAOImpl" />
+		<property name="subsystemAttrNameDAO" ref="subsystemAttrNameDAOImpl" />
+		<property name="subsystemParaDAO" ref="subsystemParaDAOImpl" />
+		<property name="subsystemParaNameDAO" ref="subsystemParaNameDAOImpl" />
+		<property name="subsystemTypeDAO" ref="subsystemTypeDAOImpl" />
+	</bean>
+	<bean id="subsystemTypeDAOImpl" class="the.dao.impl.SubsystemTypeDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 

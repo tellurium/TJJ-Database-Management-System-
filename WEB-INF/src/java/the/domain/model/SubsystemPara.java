@@ -13,7 +13,7 @@ public class SubsystemPara implements java.io.Serializable {
 	private static final long serialVersionUID = 7L;
 
 	private Integer subsystemParaId;
-	private String subsystemParaName;
+	private Integer subsystemParaNameId;
 	private String subsystemParaValue;
 
 	// The Subsystem which this attr belongs to
@@ -22,8 +22,8 @@ public class SubsystemPara implements java.io.Serializable {
 	public SubsystemPara() {
 	}
 
-	public SubsystemPara(String subsystemParaName, String subsystemParaValue) {
-		this.subsystemParaName = subsystemParaName;
+	public SubsystemPara(Integer subsystemParaNameId, String subsystemParaValue) {
+		this.subsystemParaNameId = subsystemParaNameId;
 		this.subsystemParaValue = subsystemParaValue;
 	}
 
@@ -37,14 +37,14 @@ public class SubsystemPara implements java.io.Serializable {
 	public void setSubsystemParaId(Integer subsystemParaId) {
 		this.subsystemParaId = subsystemParaId;    	
 	}
-	
-	@Column(name="subsystem_para_name")	
-	public String getSubsystemParaName() {
-		return this.subsystemParaName;
+
+	@Column(name="subsystem_para_name_id")
+	public Integer getSubsystemParaNameId() {
+		return this.subsystemParaNameId;
 	}
 	
-	public void setSubsystemParaName(String subsystemParaName) {
-		this.subsystemParaName = subsystemParaName;    	
+	public void setSubsystemParaNameId(Integer subsystemParaNameId) {
+		this.subsystemParaNameId = subsystemParaNameId;    	
 	}
 	
 	@Column(name="subsystem_para_value")

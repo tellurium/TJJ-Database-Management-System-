@@ -1,12 +1,10 @@
 <%@include file="inner/top-header.jsp" %>
-
-	<title><s:property value="subsystemName" /><s:text name="query.title" /></title>
-	<link rel="stylesheet" href="/tiaojujiang/css/query.css" type="text/css" />
+	<title><s:text name="update.title" /><s:property value="#session['SUBSYSTEM_NAME']" /></title>
 <%@include file="inner/middle.jsp" %>
-	
-	
+
 <%@include file="inner/navigator-bar.jsp" %>
 	
 	
+
 
 <%@include file="inner/bottom-footer.jsp" %>

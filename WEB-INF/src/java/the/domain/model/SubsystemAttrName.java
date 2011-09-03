@@ -55,7 +55,5 @@ public class SubsystemAttrName implements java.io.Serializable {
 	public void setSubsystemId(Integer subsystemId) {
 		this.subsystemId = subsystemId;    	
 	}
-	
-	
-									  
+
 }
