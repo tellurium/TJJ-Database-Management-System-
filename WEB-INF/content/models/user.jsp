@@ -1,7 +1,10 @@
 <%@include file="../inner/top-header.jsp" %>
 	<title>User</title>
+
+<div id="body-wrapper">
 <%@include file="../inner/middle.jsp" %>
 	
+	<div id="main-content">
 	<h1><s:text name="user.title" /><s:text name="list.title" /></h1>
 
 	<s:if test="list.size() > 0">
@@ -38,7 +41,9 @@
 		</table>
 		</div>
 	</s:if>
-	<br/>
+
+	<div class="clear"></div>
+
 	<s:form action="addUser" >
 		<s:textfield name="userName" label="User Name" />
 		<s:textfield name="sex" label="Gender" />
@@ -48,4 +53,16 @@
 		<s:submit value="%{getText('add.title')}" />
 	</s:form>
 
+
+
+
+
+		<div class="clear"></div> <!-- End .clear -->
+		<div id="footer">
+			<small> <!-- Remove this notice or replace it with whatever you want -->
+				&#169; Copyright 2011 | Powered by <a href="#"><s:text name="shanghai_university.title" /></a> | <a href="#">Top</a>
+			</small>
+		</div><!-- End #footer -->
+	</div>
+</div>
 <%@include file="../inner/bottom-footer.jsp" %>

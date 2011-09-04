@@ -2,8 +2,9 @@
 	<title><s:text name="update.title" /><s:property value="#session['SUBSYSTEM_NAME']" /></title>
 <%@include file="inner/middle.jsp" %>
 
+<div id="body-wrapper">
 <%@include file="inner/navigator-bar.jsp" %>
-	
+	<div id="main-content">
 	<div id="attrs-list">
 			<!-- Input the type -->
 			<label><s:property value="#session['SUBSYSTEM_NAME']" /><s:text name="type.title" /></label>
@@ -51,5 +52,21 @@
 		<br />
 		<input value="<s:text name='submit.title' />" type="submit">
 		<input value="<s:text name='reset.title' />" type="reset">
+		
 
+
+
+
+
+
+
+
+		<div class="clear"></div> <!-- End .clear -->
+		<div id="footer">
+			<small> <!-- Remove this notice or replace it with whatever you want -->
+				&#169; Copyright 2011 | Powered by <a href="#"><s:text name="shanghai_university.title" /></a> | <a href="#">Top</a>
+			</small>
+		</div><!-- End #footer -->
+	</div>
+</div>
 <%@include file="inner/bottom-footer.jsp" %>

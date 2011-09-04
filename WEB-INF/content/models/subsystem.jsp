@@ -1,7 +1,9 @@
 <%@include file="../inner/top-header.jsp" %>
 	<title>Subsystem</title>
+
+<div id="body-wrapper">
 <%@include file="../inner/middle.jsp" %>
-	
+	<div id="main-content">
 	<h1><s:text name="subsystem.title" /><s:text name="list.title" /></h1>
 	
 	<s:if test="list.size() > 0">
@@ -100,5 +102,15 @@
 	</s:form>
 	<br/>
 	</s:if>
-	
+
+
+
+	<div class="clear"></div> <!-- End .clear -->
+		<div id="footer">
+			<small> <!-- Remove this notice or replace it with whatever you want -->
+				&#169; Copyright 2011 | Powered by <a href="#"><s:text name="shanghai_university.title" /></a> | <a href="#">Top</a>
+			</small>
+		</div><!-- End #footer -->
+	</div>
+</div>	
 <%@include file="../inner/bottom-footer.jsp" %>

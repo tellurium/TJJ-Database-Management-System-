@@ -1,7 +1,10 @@
 <%@include file="../inner/top-header.jsp" %>
 	<title></title>
-<%@include file="../inner/middle.jsp" %>
 
+<div id="body-wrapper">
+<%@include file="../inner/middle.jsp" %>
+	
+	<div id="main-content">
 	<s:if test="list.size() > 0">
 		<div class="content">
 		<table class="table" cellpadding="5px">
@@ -32,4 +35,16 @@
 		<s:text name="have_no.title" /><s:text name="log.title" />
 	</s:else>
 
+
+
+
+
+		<div class="clear"></div> <!-- End .clear -->
+		<div id="footer">
+			<small> <!-- Remove this notice or replace it with whatever you want -->
+				&#169; Copyright 2011 | Powered by <a href="#"><s:text name="shanghai_university.title" /></a> | <a href="#">Top</a>
+			</small>
+		</div><!-- End #footer -->
+	</div>
+</div>
 <%@include file="../inner/bottom-footer.jsp" %>

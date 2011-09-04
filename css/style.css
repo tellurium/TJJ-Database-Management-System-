@@ -133,6 +133,39 @@ a.remove-link:hover {
                 padding: 0 15px 20px 15px;
                 text-align: right;
                 line-height: 1.5em;
+                font-size: 15px;
+                margin: 20px 0 0 0;
+                }
+
+#sidebar #login-top {
+                font-size: 30px;
+                text-align: center;
+                color: #ddd;
+                }
+
+#sidebar #subsystem-list {
+                margin: 4px;
+        
+                }
+#sidebar #subsystem-list select {
+                width: 110px;
+                margin: 0 0 20px 0;
+                border: 0;
+                background: #fff;
+                padding: 2px;
+                -moz-border-radius: 6px;
+                -webkit-border-radius: 6px;
+                border-radius: 6px;
+                }
+#sidebar #subsystem-list label {
+                font-size: 15px;
+                float: left;
+                margin: 5px;
+                }
+
+#sidebar #subsystem-list input {
+                margin: 0 0 0 6px;
+                float: right;
                 }
 
 /************ Sidebar Accordion Menu ************/
@@ -228,6 +261,17 @@ a.remove-link:hover {
 #main-content {
                 margin: 0 30px 0 260px;
                 padding: 40px 0 0 0;
+                min-height: 500px;
+                }
+
+#main-content #introduction-title {
+                font-size: 50px;
+                text-align: center;
+                }
+
+#main-content #introduction-text p {
+                font-size: 20px;
+                text-align: left;
                 }
 
 .column-left {
@@ -398,7 +442,76 @@ ul.content-box-tabs li a.current {
                 }
 				
 .pagination a.current:hover {
-				text-decoration: underline;
+		text-decoration: underline;
+                }
+
+/************ Subsystem Type ***************/
+#main-content #subsystem-type {
+                
+        
+                }
+
+#main-content #subsystem-type #input-type {
+                margin: 10px;
+                }
+
+#main-content #subsystem-type #type-title {
+                margin: 10px;
+                font-size: 20px;
+                color: #885;
+                }
+
+#main-content #subsystem-type #attrs-list #attr {
+                font-size: 20px;
+                float: left;
+                width: 30%;
+                margin: 5px;
+                }
+
+/************ Parameter Picture ***********/
+#main-content #subsystem-type #parameter-picture {
+                float: left;
+                width: 70%;
+                margin: 10px 0 0 0;
+                }
+
+#main-content #subsystem-type #parameter-picture h2 {
+                font-size: 25px;
+                }
+
+#main-content #subsystem-type #picture-bar {
+                float: right;
+                width: 25%;
+                margin: 40px 0 0 0;
+                }
+
+#main-content #subsystem-type #picture-bar input {
+                margin: 10px 20px;
+                }
+
+#main-content #subsystem-type #picture-bar select {
+                margin: 20px 0 20px 20px;
+                }
+
+#main-content #subsystem-type #paras-list {
+                margin: 20px 0 0 0;
+                font-size: 15px;
+                }
+
+#main-content #subsystem-type #paras-list #para {
+                font-size: 20px;
+                float: left;
+                width: 20%;
+                margin: 5px;
+                }
+
+#main-content #subsystem-type #buttons {
+                float: center;
+                width: 20%;
+                margin: 10px auto;
+                }
+#main-content #subsystem-type #buttons input {
+                margin: 10px;
                 }
 
 /************ Shortcut Buttons ************/
@@ -746,6 +859,20 @@ body#login {
   background-color: #000;
   z-index: 99;
 }
+
+
+/*#subsystem-list {
+                font-size: 15px;
+
+                }
+
+#subsystem-list select {
+                        width: 140px;
+                        float: right;
+                        margin: 5px;
+                        border: 0;
+                        background: #fff;
+                        }*/
 
 /*************** jQuery WYSIWYG ***************/
 

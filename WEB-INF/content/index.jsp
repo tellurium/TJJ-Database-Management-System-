@@ -1,5 +1,5 @@
 <%@include file="inner/top-header.jsp" %>
-	<title><s:text name="application.name" /> | <s:text name="index.title" /></title>
+	<title><s:text name="index.title" /> | <s:text name="application.name" /></title>
 
 	<link rel="stylesheet" href="/tiaojujiang/css/reset.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/tiaojujiang/css/style.css" type="text/css" media="screen" />	
