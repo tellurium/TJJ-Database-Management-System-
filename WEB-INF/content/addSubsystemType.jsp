@@ -1,9 +1,11 @@
 <%@include file="inner/top-header.jsp" %>
 	<title><s:text name="add.title" /><s:property value="#session['SUBSYSTEM_NAME']" /></title>
+	<s:head />
 <%@include file="inner/middle.jsp" %>
 
 <%@include file="inner/navigator-bar.jsp" %>
-	<s:form action="addSubsystemType">
+	<s:form action="addSubsystemType" >
+		<s:actionerror />
 		<div id="attrs-list">
 			<!-- Input the type -->
 			<label><s:property value="#session['SUBSYSTEM_NAME']" /><s:text name="type.title" /></label>
@@ -11,11 +13,11 @@
     		<br />
 
     		<!-- iterator the attrs -->
-    		<s:iterator value="attrMap" id="column">
-    			<label><s:property value="key" /></label>
-    			<input type="text" name="attrMap['${key}']" value="<s:property value='value' />" />
+    		<s:iterator value="attrMap" id="column" status="status">
+    			<label><s:property value="%{getAttrNameById(#status.index)}" /></label>
+    			<input type="text" name="attrMap['${status.index}']" value="<s:property value='%{getAttrValueById(#status.index)}' />" />
+    			<br />
     		</s:iterator>
-
 		</div>
 		<div id="parameter-picture">
 			<%@include file="units/parameter-picture.jsp" %>
@@ -39,8 +41,14 @@
 		<div id="paras-list">
 			<br />
 			<s:property value="#session['SUBSYSTEM_NAME']" /><s:text name="parameter.title"/>:
+			<br />
 			<!-- iterator the paras -->
-
+			<s:iterator value="paraMap" id="column" status="status">
+    			<label><s:property value="%{getParaNameById(#status.index)}" /></label>
+    			<input type="text" name="paraMap['${status.index}']" value="<s:property value='%{getParaValueById(#status.index)}' />" />
+    			<br />
+    		</s:iterator>
+			
 		</div>
 		<br />
 		<input value="<s:text name='submit.title' />" type="submit">

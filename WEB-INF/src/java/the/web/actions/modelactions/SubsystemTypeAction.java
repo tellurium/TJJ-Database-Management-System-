@@ -33,19 +33,18 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 	private SubsystemTypeDAO subsystemTypeDAO;
 	private Map<String, String> attrMap;
 	private Map<String, String> paraMap;
-	private List<SubsystemAttr> attrList;
 	private List<SubsystemAttrName> attrsNameList;
-	private List<SubsystemPara> paraList;
 	private List<SubsystemParaName> parasNameList;
 	private Subsystem curSubsystem;
 	
 	@Override 
 	protected void init() {
 		target = new SubsystemType();
+	}
+
+	public void initMaps() {
 		attrMap = new HashMap<String, String>();
 		paraMap = new HashMap<String, String>();
-		attrList = new ArrayList<SubsystemAttr>();
-		paraList = new ArrayList<SubsystemPara>();
 	}
 
 
@@ -59,13 +58,20 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 
 	// show the add page
 	public String showAddPage() {
+		initMaps();
 		ActionContext context = ActionContext.getContext();
 		Map session = context.getSession();
 		curSubsystem = subsystemDAO.getSubsystemByName((String)session.get("SUBSYSTEM_NAME"));
 		attrsNameList = subsystemAttrNameDAO.listBySubsystem(curSubsystem.getSubsystemId());
-		for (SubsystemAttrName attrName : attrsNameList) {
-			attrList.add(new SubsystemAttr(attrName.getSubsystemAttrNameId()));
-			// attrMap.put(attrName.getSubsystemAttrName(), "dd");
+		int size = attrsNameList.size();
+		for (int i = 0; i < size; i++ ) {
+			attrMap.put(i + "", "");
+		}
+
+		parasNameList = getParasList();
+		size = parasNameList.size();
+		for (int i = 0;	i < size ; i++) {
+			paraMap.put(i + "", "");
 		}
 		
 		return SUCCESS;
@@ -84,14 +90,39 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 		return SUCCESS;
 	}
 
+
 	// add a new subsystemType
 	public String add() {
+
+		clearErrorsAndMessages();
+		if (target.getType().equals("")) {
+			addActionError(getText("type.title") + getText("can_not_be_empty.title"));
+			return INPUT;
+		}
+		target.setType(null);
+			
 		Iterator iter = attrMap.entrySet().iterator();
 		while (iter.hasNext()) {
 			Map.Entry entry = (Map.Entry)iter.next();
 			// 
-			System.out.println(entry.getKey() + "*********************" + entry.getValue());
+			System.out.println(getAttrNameById((String)entry.getKey()) + "*********************" + entry.getValue());
 		}
+		iter = paraMap.entrySet().iterator();
+		while (iter.hasNext()) {
+			Map.Entry entry = (Map.Entry)iter.next();
+			//
+			System.out.println(getParaNameById((String)entry.getKey()) + "*********************" + entry.getValue());
+		}
+
+
+		// add attrs
+
+		// add paras
+
+		// add pics
+
+		// add units
+
 		return SUCCESS;
 	}
 
@@ -100,6 +131,45 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 	public String update() {
 		return SUCCESS;
 	}
+
+	// show the query result
+	public String query() {
+		// get the subsystemType by typename
+		// target = 
+		return SUCCESS;
+	}
+
+
+	/* 
+	 * utils 
+	 */
+	public String getAttrNameById(String id) {
+		return attrsNameList.get(Integer.parseInt(id)).getSubsystemAttrName();
+	}
+
+	public String getParaNameById(String id) {
+		return parasNameList.get(Integer.parseInt(id)).getSubsystemParaName();
+	}
+
+	public String getParaValueById(String id) {
+		return (String)paraMap.get(id);
+	}
+
+	public String getAttrValueById(String id) {
+		return (String)attrMap.get(id);
+	}
+
+	public List<SubsystemParaName> getParasList() {
+		List<SubsystemParaName> paraNames = new ArrayList<SubsystemParaName>();
+
+		// force set the para number as 26... (not a good thing....please modified it in the future)
+		char a = 'a';
+		for (int i = 0; i < 26 ;i++, a += 1 ) {
+			paraNames.add(new SubsystemParaName(a + "", curSubsystem.getSubsystemId()));
+		}
+
+		return paraNames;
+	}	
 
 	/* 
 	 * All of the beans 
@@ -182,22 +252,6 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 	
 	public void setParasNameList(List<SubsystemParaName> parasNameList) {
 		this.parasNameList = parasNameList;    	
-	}
-
-	public List<SubsystemAttr> getAttrList() {
-		return this.attrList;
-	}
-	
-	public void setAttrList(List<SubsystemAttr> attrList) {
-		this.attrList = attrList;    	
-	}
-	
-	public List<SubsystemPara> getParaList() {
-		return this.paraList;
-	}
-	
-	public void setParaList(List<SubsystemPara> paraList) {
-		this.paraList = paraList;    	
 	}
 
 }
