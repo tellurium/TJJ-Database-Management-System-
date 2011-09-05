@@ -18,10 +18,11 @@
 				</form>
 			</div>
 
+			<s:if test="isQuerid == true">
 			<!-- Show the type name -->
 			<div id="type-title">
 				<label><s:property value="#session['SUBSYSTEM_NAME']" /><s:text name="type.title" /></label>
-				<input name="type" value="" type="text" readonly="true" />
+				<input name="type" value="<s:property value='type' />" type="text" readonly="true" />
 			</div>
 			<!-- All the attrs current subsystem -->
 			<div id="attrs-list">
@@ -75,7 +76,7 @@
 				<input class="button" value="<s:text name='submit.title' />" type="submit">
 				<input class="button" value="<s:text name='reset.title' />" type="reset">
 			</div>
-			
+			</s:if>
 		</div>
 
 

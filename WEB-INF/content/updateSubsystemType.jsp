@@ -9,7 +9,7 @@
 			<!-- Input the type -->
 			<div id="type-title">
 				<label><s:property value="#session['SUBSYSTEM_NAME']" /><s:text name="type.title" /></label>
-    			<input name="type" value="" type="text" />
+    			<input name="type" value="<s:property value='type' />" type="text" />
 			</div>
 			<br />
 

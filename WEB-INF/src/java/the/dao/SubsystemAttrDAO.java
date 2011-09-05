@@ -5,5 +5,5 @@ import the.domain.model.SubsystemAttr;
 public interface SubsystemAttrDAO {
 
 	public void save(SubsystemAttr object);
-
+	public SubsystemAttr getAttrByNameId(Integer nameId);
 }

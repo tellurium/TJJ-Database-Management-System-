@@ -55,7 +55,7 @@
       </action>
       <action name="showQuery" method="showQuery" class="logicClass">
          
-         <result name="success" type="redirect">showSubsystemType</result>
+         <result name="success">/WEB-INF/content/models/subsystemType.jsp</result>
       </action>
       <action name="subsystemManager" method="manageSubsystem" class="logicClass">
          <interceptor-ref name="auth" />

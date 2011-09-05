@@ -20,4 +20,9 @@ public class SubsystemAttrDAOImpl extends BaseDAOImpl<SubsystemAttr> implements 
 		create(object);
 	}
 
+	@Override
+	public SubsystemAttr getAttrByNameId(Integer nameId) {
+		return read("subsystemAttrNameId", nameId + "");
+	}
+
 }

@@ -36,6 +36,7 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 	private List<SubsystemAttrName> attrsNameList;
 	private List<SubsystemParaName> parasNameList;
 	private Subsystem curSubsystem;
+	private boolean isQuerid;
 	
 	@Override 
 	protected void init() {
@@ -43,9 +44,9 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 	}
 
 	public void initMaps() {
-		target = new SubsystemType();
 		attrMap = new HashMap<String, String>();
 		paraMap = new HashMap<String, String>();
+		isQuerid = false;
 	}
 
 
@@ -80,12 +81,26 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 
 	// show current page
 	public String showType() {
+		initMaps();
+		ActionContext context = ActionContext.getContext();
+		Map session = context.getSession();
 		curSubsystem = subsystemDAO.getSubsystemByName((String)session.get("SUBSYSTEM_NAME"));
 		SubsystemType type = subsystemTypeDAO.getSubsystemTypeByName(target.getType());
 		attrsNameList = subsystemAttrNameDAO.listBySubsystem(curSubsystem.getSubsystemId());
-		
+		int size = attrsNameList.size();
+		for (int i = 0; i < size; i++ ) {
+			attrMap.put(i + "", subsystemAttrDAO.getAttrByNameId(attrsNameList.get(i)
+					.getSubsystemAttrNameId()).getSubsystemAttrValue());
+		}
 
+		parasNameList = subsystemParaNameDAO.listBySubsystemType(type.getSubsystemTypeId());
+		size = parasNameList.size();
+		for (int i = 0; i < size; i++ ) {
+			paraMap.put(i + "", subsystemParaDAO.getParaByNameId(parasNameList.get(i)
+					.getSubsystemParaNameId()).getSubsystemParaValue());
+		}
 
+		isQuerid = true;
 		return SUCCESS;
 	}
 
@@ -120,6 +135,7 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 		// save paras
 		size = parasNameList.size();
 		for (int i = 0;	i < size ; i++) {
+			parasNameList.get(i).setSubsystemTypeId(curSubsystemTypeId);
 			subsystemParaNameDAO.save(parasNameList.get(i));
 
 			SubsystemPara para = new SubsystemPara(subsystemParaNameDAO.getIdByName(parasNameList.get(i).getSubsystemParaName()),
@@ -266,5 +282,15 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 	public void setParasNameList(List<SubsystemParaName> parasNameList) {
 		this.parasNameList = parasNameList;    	
 	}
+
+	public boolean getIsQuerid() {
+		return this.isQuerid;
+	}
+	
+	public void setIsQuerid(boolean isQuerid) {
+		this.isQuerid = isQuerid;    	
+	}
+	
+	
 
 }
