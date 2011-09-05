@@ -24,7 +24,7 @@
 					<td><s:property value="userName" /></td>
 					<td><s:property value="sex" /></td>
 					<td><s:property value="email" /></td>
-					<td><s:property value="privilegeName" /></td>
+					<td><s:property value="privilege.privilegeId" /></td>
 					<td>
 						<a href="<s:url action="updateUser"><s:param name="userId" value="userId"/></s:url>">
 						Edit

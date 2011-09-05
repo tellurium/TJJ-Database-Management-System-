@@ -25,9 +25,6 @@ public class UserAction extends ModelAction<User> {
 	private String oldPassword;
 	private String passwordInput;
 	private String passwordSubmit;
-	private String userName;
-	private String sex;
-	private String email;
 
 	@Override
 	protected void init() {
@@ -36,9 +33,6 @@ public class UserAction extends ModelAction<User> {
 
 	@Override
 	public String create(){
-		target.setUserName(userName);
-		target.setSex(sex);
-		target.setEmail(email);
 		System.out.println(target.getUserName() + "*********************" + target.getEmail());
 		Privilege privilege = privilegeDAO.getPrivilegeByName(privilegeName);
 		target.setPrivilege(privilege);
@@ -146,33 +140,6 @@ public class UserAction extends ModelAction<User> {
 	
 	public void setPasswordSubmit(String passwordSubmit) {
 		this.passwordSubmit = passwordSubmit;    	
-	}
-
-
-
-	// For user
-	public String getUserName() {
-		return this.userName;
-	}
-	
-	public void setUserName(String userName) {
-		this.userName = userName;    	
-	}
-	
-	public String getSex() {
-		return this.sex;
-	}
-	
-	public void setSex(String sex) {
-		this.sex = sex;    	
-	}
-	
-	public String getEmail() {
-		return this.email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;    	
 	}
 	
 }

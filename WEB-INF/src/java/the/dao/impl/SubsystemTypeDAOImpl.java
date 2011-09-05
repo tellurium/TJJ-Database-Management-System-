@@ -15,4 +15,9 @@ public class SubsystemTypeDAOImpl extends BaseDAOImpl<SubsystemType> implements 
 		return "SubsystemType";
 	}
 
+	@Override
+	public SubsystemType getSubsystemTypeByName(String typeName) {
+		return read("type", typeName);
+	}
+
 }

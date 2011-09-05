@@ -15,4 +15,14 @@ public class SubsystemParaNameDAOImpl extends BaseDAOImpl<SubsystemParaName> imp
 		return "SubsystemParaName";
 	}
 
+	@Override
+	public Integer getIdByName(String paraName) {
+		return read("subsystemParaName", paraName).getSubsystemParaNameId();
+	}
+
+	@Override
+	public void save(SubsystemParaName paraName) {
+		create(paraName);
+	}
+
 }

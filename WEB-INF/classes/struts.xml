@@ -19,7 +19,7 @@
          </interceptor-stack>
       </interceptors>
       <!-- If I add this line, some strange problems will be broken out -->
-      <default-interceptor-ref name="auth"></default-interceptor-ref>
+      <!-- <default-interceptor-ref name="auth"></default-interceptor-ref> -->
 
       <!-- Global results redirect to index page -->
       <global-results>
@@ -57,8 +57,8 @@
          
          <result name="success" type="redirect">showSubsystemType</result>
       </action>
-      <action name="subsystemManager" method="list" class="subsystemClass">
-         
+      <action name="subsystemManager" method="manageSubsystem" class="logicClass">
+         <interceptor-ref name="auth" />
          <result name="success">/WEB-INF/content/subsystemManager.jsp</result>
       </action>
       <action name="addType" method="addType" class="logicClass">

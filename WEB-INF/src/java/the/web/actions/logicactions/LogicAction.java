@@ -39,7 +39,7 @@ public class LogicAction extends ActionSupport {
  		return SUCCESS;
  	}
 
- 	public String manageSubsytem() {
+ 	public String manageSubsystem() {
  		return SUCCESS;
  	}
 

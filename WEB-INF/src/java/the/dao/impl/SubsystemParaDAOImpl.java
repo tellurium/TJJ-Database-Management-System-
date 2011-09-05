@@ -15,4 +15,9 @@ public class SubsystemParaDAOImpl extends BaseDAOImpl<SubsystemPara> implements 
 		return "SubsystemPara";
 	}
 
+	@Override
+	public void save(SubsystemPara object) {
+		create(object);
+	}
+
 }

@@ -128,13 +128,6 @@ public class SubsystemAction extends ModelAction<Subsystem> {
 		return SUCCESS;
 	}
 
-
-
-	public String manageSubsystem() {
-		return SUCCESS;
-	}
-
-
 	/* 
 	 * All the beans 
 	 */

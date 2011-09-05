@@ -8,7 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="subsystem_para_name")
+@Table(name="subsystem_para_name", 
+	uniqueConstraints = {@UniqueConstraint(columnNames= {"subsystem_para_name"})}
+)
 public class SubsystemParaName implements java.io.Serializable {
 	
 	private static final long serialVersionUID = 11L;
@@ -17,14 +19,14 @@ public class SubsystemParaName implements java.io.Serializable {
 	private String subsystemParaName;
 
 	// The Subsystem which this attr belongs to
-	private Integer subsystemId;
+	private Integer subsystemTypeId;
 		
 	public SubsystemParaName() {
 	}
 
-	public SubsystemParaName(String subsystemParaName, Integer subsystemId) {
+	public SubsystemParaName(String subsystemParaName, Integer subsystemTypeId) {
 		this.subsystemParaName = subsystemParaName;
-		this.subsystemId = subsystemId;
+		this.subsystemTypeId = subsystemTypeId;
 	}
 
 	@Id
@@ -47,12 +49,14 @@ public class SubsystemParaName implements java.io.Serializable {
 		this.subsystemParaName = subsystemParaName;    	
 	}
 	
-	@Column(name="subsystem_id", nullable=false)
-	public Integer getSubsystemId() {
-		return this.subsystemId;
+	@Column(name="subsystem_type_id", nullable=false)
+	public Integer getSubsystemTypeId() {
+		return this.subsystemTypeId;
 	}
 	
-	public void setSubsystemId(Integer subsystemId) {
-		this.subsystemId = subsystemId;    	
+	public void setSubsystemTypeId(Integer subsystemTypeId) {
+		this.subsystemTypeId = subsystemTypeId;    	
 	}
+	
+	
 }

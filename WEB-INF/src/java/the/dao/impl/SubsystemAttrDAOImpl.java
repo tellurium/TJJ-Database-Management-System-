@@ -15,4 +15,9 @@ public class SubsystemAttrDAOImpl extends BaseDAOImpl<SubsystemAttr> implements 
 		return "SubsystemAttr";
 	}
 
+	@Override
+	public void save(SubsystemAttr object) {
+		create(object);
+	}
+
 }

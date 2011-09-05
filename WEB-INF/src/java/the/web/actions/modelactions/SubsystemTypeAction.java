@@ -43,6 +43,7 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 	}
 
 	public void initMaps() {
+		target = new SubsystemType();
 		attrMap = new HashMap<String, String>();
 		paraMap = new HashMap<String, String>();
 	}
@@ -79,9 +80,12 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 
 	// show current page
 	public String showType() {
-		// if (target.getType() != null) {
-		// 	target.setType(null);
-		// }
+		curSubsystem = subsystemDAO.getSubsystemByName((String)session.get("SUBSYSTEM_NAME"));
+		SubsystemType type = subsystemTypeDAO.getSubsystemTypeByName(target.getType());
+		attrsNameList = subsystemAttrNameDAO.listBySubsystem(curSubsystem.getSubsystemId());
+		
+
+
 		return SUCCESS;
 	}
 
@@ -94,29 +98,43 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 			addActionError(getText("type.title") + getText("can_not_be_empty.title"));
 			return INPUT;
 		}
-		target.setType(null);
-			
-		Iterator iter = attrMap.entrySet().iterator();
-		while (iter.hasNext()) {
-			Map.Entry entry = (Map.Entry)iter.next();
-			// 
-			System.out.println(getAttrNameById((String)entry.getKey()) + "*********************" + entry.getValue());
+		
+		Integer curSubsystemId = curSubsystem.getSubsystemId();
+		target.setSubsystemId(curSubsystemId);
+		create(); // add the subsystem in the database
+
+		target = subsystemTypeDAO.getSubsystemTypeByName(target.getType());
+		Integer curSubsystemTypeId = target.getSubsystemTypeId();
+
+		// save attrs
+		int size = attrsNameList.size();
+		for (int i = 0; i < size; i++ ) {
+			SubsystemAttr attr = new SubsystemAttr(attrsNameList.get(i).getSubsystemAttrNameId(), 
+					attrMap.get(i + ""));
+			attr.setSubsystemTypeId(curSubsystemTypeId);
+			System.out.println(attrsNameList.get(i).getSubsystemAttrName() + "*********************" );
+			System.out.println(attrMap.get(i + "") + "*********************" );
+			subsystemAttrDAO.save(attr);
 		}
-		iter = paraMap.entrySet().iterator();
-		while (iter.hasNext()) {
-			Map.Entry entry = (Map.Entry)iter.next();
-			//
-			System.out.println(getParaNameById((String)entry.getKey()) + "*********************" + entry.getValue());
+
+		// save paras
+		size = parasNameList.size();
+		for (int i = 0;	i < size ; i++) {
+			subsystemParaNameDAO.save(parasNameList.get(i));
+
+			SubsystemPara para = new SubsystemPara(subsystemParaNameDAO.getIdByName(parasNameList.get(i).getSubsystemParaName()),
+					 paraMap.get(i + ""));
+			para.setSubsystemTypeId(curSubsystemTypeId);
+			System.out.println(parasNameList.get(i).getSubsystemParaName() + "*********************" );
+			System.out.println(paraMap.get(i + "") + "*********************" );
+			subsystemParaDAO.save(para);
 		}
-
-
-		// add attrs
-
-		// add paras
 
 		// add pics
 
+
 		// add units
+
 
 		return SUCCESS;
 	}

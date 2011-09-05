@@ -9,12 +9,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.FetchType;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
+import javax.persistence.UniqueConstraint;
 
 import java.util.List;
 import java.util.ArrayList;
 
 @Entity
-@Table(name="subsystem_type")
+@Table(name="subsystem_type", 
+	uniqueConstraints = {@UniqueConstraint(columnNames= {"type"})}
+)
 public class SubsystemType implements java.io.Serializable {
 
 	private static final long serialVersionUID = 5L;
