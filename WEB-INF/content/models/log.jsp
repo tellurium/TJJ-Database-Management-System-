@@ -9,12 +9,12 @@
 		<div class="content">
 		<table class="table" cellpadding="5px">
 			<tr class="even">
-				<th>User Name</th>
-				<th>Event</th>
-				<th>Event Type</th>
-				<th>Description</th>
-				<th>CreateTime</th>
-				<th>Download</th>
+				<th><s:text name="username.title" /></th>
+				<th><s:text name="event.title" /></th>
+				<th><s:text name="event.title" /><s:text name="type.title" /></th>
+				<th><s:text name="description.title" /></th>
+				<th><s:text name="create.title" /><s:text name="time.title" /></th>
+				<th><s:text name="download.title" /></th>
 			</tr>
 
 			<s:iterator value="list" status="logStatus">

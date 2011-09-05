@@ -6,20 +6,25 @@
 <div id="body-wrapper">
 <%@include file="inner/navigator-bar.jsp" %>
 	<div id="main-content">
-	<s:form action="addSubsystemType" >
+	<div id="subsystem-type">
+		<s:form action="addSubsystemType" >
 		<s:actionerror />
-		<div id="attrs-list">
+		
 			<!-- Input the type -->
-			<label><s:property value="#session['SUBSYSTEM_NAME']" /><s:text name="type.title" /></label>
-    		<input name="type" value="" type="text" />
+			<div id="type-title">
+				<label><s:property value="#session['SUBSYSTEM_NAME']" /><s:text name="type.title" /></label>
+    			<input name="type" value="" type="text" />
+    		</div>
     		<br />
-
+    		<div id="attrs-list">
     		<!-- iterator the attrs -->
     		<s:iterator value="attrMap" id="column" status="status">
-    			<label><s:property value="%{getAttrNameById(#status.index)}" /></label>
-    			<input type="text" name="attrMap['${status.index}']" value="<s:property value='%{getAttrValueById(#status.index)}' />" />
-    			<br />
+    			<div id="attr">
+    				<label><s:property value="%{getAttrNameById(#status.index)}" />:</label>
+    				<input type="text" name="attrMap['${status.index}']" value="<s:property value='%{getAttrValueById(#status.index)}' />" />
+    			</div>
     		</s:iterator>
+    		<br />
 		</div>
 		<div id="parameter-picture">
 			<%@include file="units/parameter-picture.jsp" %>
@@ -40,24 +45,31 @@
     		<br />
 
 		</div>
+
+		<div class="clear"></div>
 		<div id="paras-list">
 			<br />
 			<s:property value="#session['SUBSYSTEM_NAME']" /><s:text name="parameter.title"/>:
 			<br />
 			<!-- iterator the paras -->
 			<s:iterator value="paraMap" id="column" status="status">
+				<div id="para">
     			<label><s:property value="%{getParaNameById(#status.index)}" /></label>
     			<input type="text" name="paraMap['${status.index}']" value="<s:property value='%{getParaValueById(#status.index)}' />" />
-    			<br />
+				</div>
     		</s:iterator>
+    		<br />
 			
 		</div>
 		<br />
+		<div class="clear"></div>
+		<div id="buttons">
 		<input value="<s:text name='submit.title' />" type="submit">
 		<input value="<s:text name='reset.title' />" type="reset">
+		</div>
 
 	</s:form>
-
+	</div>
 
 
 	<div class="clear"></div> <!-- End .clear -->

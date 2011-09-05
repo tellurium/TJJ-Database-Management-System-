@@ -11,12 +11,11 @@
 		<div class="content">
 		<table class="table" cellpadding="5px">
 			<tr class="even">
-				<th>UserName</th>
-				<th>Gender</th>
-				<th>Email</th>
-				<th>Privilege</th>
-				<th>Edit</th>
-				<th>Delete</th>
+				<th><s:text name="username.title" /></th>
+				<th><s:text name="gender.title" /></th>
+				<th><s:text name="email.title" /></th>
+				<th><s:text name="privilege.title" /></th>
+				<th><s:text name="operation.title" /></th>
 			</tr>
 
 			<s:iterator value="list" status="userStatus">
@@ -29,9 +28,7 @@
 					<td>
 						<a href="<s:url action="updateUser"><s:param name="userId" value="userId"/></s:url>">
 						Edit
-						</a>
-					</td>
-					<td>
+						</a> | 
 						<a href="<s:url action="deleteUser"><s:param name="userId" value="userId" /></s:url>">
 						Delete
 						</a>

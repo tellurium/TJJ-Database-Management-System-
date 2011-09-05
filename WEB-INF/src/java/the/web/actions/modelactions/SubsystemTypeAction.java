@@ -79,14 +79,9 @@ public class SubsystemTypeAction extends ModelAction<SubsystemType> {
 
 	// show current page
 	public String showType() {
-		if (target.getType() != null) {
-						
-
-
-
-
-			target.setType(null);
-		}
+		// if (target.getType() != null) {
+		// 	target.setType(null);
+		// }
 		return SUCCESS;
 	}
 

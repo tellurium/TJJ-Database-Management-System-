@@ -468,6 +468,14 @@ ul.content-box-tabs li a.current {
                 margin: 5px;
                 }
 
+#main-content #subsystem-type #attrs-list #attr label {
+                float: left;
+                }
+
+#main-content #subsystem-type #attrs-list #attr input {
+                float: left;
+                }
+
 /************ Parameter Picture ***********/
 #main-content #subsystem-type #parameter-picture {
                 float: left;
@@ -480,7 +488,7 @@ ul.content-box-tabs li a.current {
                 }
 
 #main-content #subsystem-type #picture-bar {
-                float: right;
+                float: left;
                 width: 25%;
                 margin: 40px 0 0 0;
                 }
@@ -505,12 +513,31 @@ ul.content-box-tabs li a.current {
                 margin: 5px;
                 }
 
+#main-content #subsystem-type #paras-list #para  label { 
+                font-size: 20px;
+                float: left;
+                width: 15%;
+                margin: 5px;
+                }
+
+#main-content #subsystem-type #paras-list #para  input {
+                font-size: 20px;
+                float: left;
+                width: 70%;
+                margin: 5px;
+                }
+
 #main-content #subsystem-type #buttons {
                 float: center;
                 width: 20%;
                 margin: 10px auto;
                 }
 #main-content #subsystem-type #buttons input {
+                margin: 10px;
+                }
+
+/************ Subsystem Manager ***********/
+#main-content #subsystem-list {
                 margin: 10px;
                 }
 
