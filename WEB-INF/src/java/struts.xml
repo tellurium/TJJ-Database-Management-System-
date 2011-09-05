@@ -19,7 +19,7 @@
          </interceptor-stack>
       </interceptors>
       <!-- If I add this line, some strange problems will be broken out -->
-      <!-- <default-interceptor-ref name="auth"></default-interceptor-ref>    -->
+      <default-interceptor-ref name="auth"></default-interceptor-ref>
 
       <!-- Global results redirect to index page -->
       <global-results>
@@ -50,140 +50,180 @@
 
       <!-- Logic action -->
       <action name="introduction" method="showIntroduction" class="logicClass" >
+         
          <result name="success">/WEB-INF/content/introduction.jsp</result>
       </action>
       <action name="showQuery" method="showQuery" class="logicClass">
+         
          <result name="success" type="redirect">showSubsystemType</result>
       </action>
-      <action name="subsystemManager" method="manageSubsytem" class="logicClass">
+      <action name="subsystemManager" method="list" class="subsystemClass">
+         
          <result name="success">/WEB-INF/content/subsystemManager.jsp</result>
       </action>
       <action name="addType" method="addType" class="logicClass">
+         
          <result name="success" type="redirect">showAddSubsystemTypePage</result>
       </action>
       <action name="updateType" method="updateType" class="logicClass">
+         
          <result name="success" type="redirect">showUpdateSubsystemTypePage</result>
       </action>
       <action name="userManager" method="manageUser" class="logicClass">
+         
          <result name="success">/WEB-INF/content/userManager.jsp</result>
       </action>
       <action name="logViewer" method="showLog" class="logicClass">
+         
          <result name="success">/WEB-INF/content/logViewer.jsp</result>
       </action>
       <action name="passwordChanger" method="changePassword" class="logicClass">
+         
          <result name="success">/WEB-INF/content/passwordChanger.jsp</result>
       </action>
 
 
       <!-- Subsystem action -->
       <action name="addSubsystem" method="create" class="subsystemClass">
+         
          <result name="success" type="redirect">subsystemManager</result>
       </action>
       <action name="listSubsystem" method="list" class="subsystemClass">
+         
          <result name="success">/WEB-INF/content/models/subsystem.jsp</result>
       </action>
       <action name="updateSubsystem" method="update" class="subsystemClass">
+         
          <result name="success" type="redirect">subsystemManager</result>
       </action>
       <action name="deleteSubsystem" method="delete" class="subsystemClass">
+         
          <result name="success" type="redirect">subsystemManager</result>
       </action>
       <action name="showSubsystemList" method="showSubsystemList" class="subsystemClass">
+         <interceptor-ref name="defaultStack" />
          <result name="success">/WEB-INF/content/units/subsystemList.jsp</result>
       </action>
       <action name="addAttr" method="addSubsystemAttrName" class="subsystemClass">
+         
          <result name="success" type="redirect">subsystemManager</result>
       </action>
       <action name="showAddSubsystemForm" method="showAddSubsystemForm" class="subsystemClass">
+         
          <result name="success" type="redirect">subsystemManager</result>
       </action>
       <action name="showAttrs" method="showAttrs" class="subsystemClass">
+         
          <result name="success" type="redirect">subsystemManager</result>
       </action>
       <action name="deleteAttr" method="deleteSubsystemAttrName" class="subsystemClass">
+         
          <result name="success" type="redirect">subsystemManager</result>
       </action>
 
       <!-- SubsystemAttr action -->
       <action name="addSubsystemAttr" method="create" class="subsystemAttrClass">
+         
          <result name="success" type="redirect">listSubsystemAttr</result>
       </action>
       <action name="listSubsystemAttr" method="list" class="subsystemAttrClass">
+         
          <result name="success">/WEB-INF/content/models/subsystemAttr.jsp</result>
       </action>
       <action name="updateSubsystemAttr" method="update" class="subsystemAttrClass">
+         
          <result name="success">/WEB-INF/content/models/subsystemAttr.jsp</result>
       </action>
       <action name="deleteSubsystemAttr" method="delete" class="subsystemAttrClass">
+         
          <result name="success" type="redirect">listSubsystemAttr</result>
       </action>
 
       <!-- Privilege action -->
       <action name="addPrivilege" method="create" class="privilegeClass">
+         
          <result name="success" type="redirect">listPrivilege</result>
       </action>
       <action name="listPrivilege" method="list" class="privilegeClass">
+         
          <result name="success">/WEB-INF/content/models/privilege.jsp</result>
       </action>
       <action name="showPrivilegeList" method="showPrivilegeList" class="privilegeClass">
+         
          <result name="success">/WEB-INF/content/units/privilegeList.jsp</result>
       </action>
 
       <!-- User action -->
       <action name="addUser" method="create" class="userClass">
+         
          <result name="success" type="redirect">userManager</result>
       </action>
       <action name="listUser" method="list" class="userClass">
+         
          <result name="success">/WEB-INF/content/models/user.jsp</result>
       </action>
       <action name="updateUser" method="update" class="userClass">
+         
          <result name="success" type="redirect">userManager</result>
       </action>
       <action name="deleteUser" method="delete" class="userClass">
+         
          <result name="success" type="redirect">userManager</result>
       </action>
       <action name="changePassword" method="changePassword" class="userClass">
+         
          <result name="success" >/WEB-INF/content/units/changePassword.jsp</result>
       </action>
       <action name="submitPassword" method="submitPassword" class="userClass">
+         
          <result name="success" type="redirect">passwordChanger</result>
       </action>
 
       <!-- Log action -->
       <action name="addLog" method="create" class="logClass">
+         
          <result name="success" type="redirect">logViewer</result>
       </action>
       <action name="listLog" method="list" class="logClass">
+         
          <result name="success">/WEB-INF/content/models/log.jsp</result>
       </action>
 
       <!-- SubsystemAttrName action -->
       <action name="addSubsystemAttrName" method="create" class="subsystemAttrNameClass">
+         
          <result name="success" type="redirect">listSubsystemAttrName</result>
       </action>
       <action name="listSubsystemAttrName" method="list" class="subsystemAttrNameClass">
+         
          <result name="success">/WEB-INF/content/models/subsystemAttrName.jsp</result>
       </action>
 
       <!-- SubsystemParaName action -->
       <action name="addSubsystemParaName" method="create" class="subsystemParaNameClass">
+         
          <result name="success" type="redirect">listSubsystemParaName</result>
       </action>
       <action name="listSubsystemParaName" method="list" class="subsystemParaNameClass">
+         
          <result name="success">/WEB-INF/content/models/subsystemParaName.jsp</result>
       </action>
 
       <!-- SubsystemType action -->
       <action name="showSubsystemType" method="showType" class="subsystemTypeClass">
+         
          <result name="success">/WEB-INF/content/models/subsystemType.jsp</result>
       </action>
       <action name="showAddSubsystemTypePage" method="showAddPage" class="subsystemTypeClass">
+         
          <result name="success">/WEB-INF/content/addSubsystemType.jsp</result>
       </action>
       <action name="showUpdateSubsystemTypePage" method="showUpdatePage" class="subsystemTypeClass">
+         
          <result name="success">/WEB-INF/content/updateSubsystemType.jsp</result>
       </action>
       <action name="addSubsystemType" method="add" class="subsystemTypeClass">
+         
          <result name="success" type="redirect">showSubsystemType</result>
          <result name="input">/WEB-INF/content/addSubsystemType.jsp</result>
       </action>

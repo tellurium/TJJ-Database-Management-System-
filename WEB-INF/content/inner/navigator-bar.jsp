@@ -11,6 +11,10 @@
 	<ul id="main-nav">  <!-- Accordion Menu -->
 		
 		<!-- introduction -->
+		<!-- Test page -->
+		<!-- <li>
+			<a href="test.jsp" class="nav-top-item no-submenu">Test</a>
+		</li> -->
 		<li>
 			<a href="introduction" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
 				<s:property value="#session['SUBSYSTEM_NAME']" /><s:text name="introduction.title" />
@@ -23,6 +27,8 @@
 				<s:text name="query.title" /><s:property value="#session['SUBSYSTEM_NAME']" />
 			</a>
 		</li>
+
+		<s:if test="%{#session['USER_PRIVILEGE'] != getText('common_user.title')}">
 		<li>
 			<a href="addType" class="nav-top-item no-submenu">
 				<s:text name="add.title" /><s:property value="#session['SUBSYSTEM_NAME']" />
@@ -34,6 +40,7 @@
 			</a>
 		</li>
 		
+		<s:if test="%{#session['USER_PRIVILEGE'] != getText('senior_user.title')}">
 		<!-- SubsystemManager -->
 		<li>
 			<a href="subsystemManager" class="nav-top-item no-submenu">
@@ -60,7 +67,11 @@
 			<a href="passwordChanger" class="nav-top-item no-submenu">
 				<s:text name="modify_password.title" />
 			</a>
-		</li>	
+		</li>
+		
+		</s:if>
+		</s:if>
+			
 	</ul> <!-- End #main-nav -->
 	<div id="subsystem-list" > 
 		<s:action name="showSubsystemList" executeResult="true"/>

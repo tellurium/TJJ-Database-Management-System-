@@ -44,6 +44,7 @@
     		<input name="exploreImage" value="" id="_exploreImage" type="file" />
     		<br />
 
+    		<input class="button" type="button" value="<s:text name='submit.title' /><s:text name='upload.title' />"/>
 		</div>
 
 		<div class="clear"></div>
@@ -64,8 +65,8 @@
 		<br />
 		<div class="clear"></div>
 		<div id="buttons">
-		<input value="<s:text name='submit.title' />" type="submit">
-		<input value="<s:text name='reset.title' />" type="reset">
+		<input class="button" value="<s:text name='submit.title' />" type="submit">
+		<input class="button" value="<s:text name='reset.title' />" type="reset">
 		</div>
 
 	</s:form>

@@ -15,6 +15,7 @@ public class LoginAction extends ActionSupport {
 	private String password;
 	private String subsystemName;
 	private UserDAO userDAO;
+	private User user;
 
 	public LoginAction(){
 	}
@@ -25,6 +26,7 @@ public class LoginAction extends ActionSupport {
 		session.put("USER_NAME", userName);
 		session.put("IS_LOGIN", true);
 		session.put("SUBSYSTEM_NAME", subsystemName);
+		session.put("USER_PRIVILEGE", user.getPrivilege().getPrivilegeName());
 		return SUCCESS;
 	}
 
@@ -35,7 +37,7 @@ public class LoginAction extends ActionSupport {
 			addActionError(getText("please_select_subsystem.title"));
 		}
 
-		User user = null;
+		user = null;
 
 		// First level validate
 		

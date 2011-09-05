@@ -17,7 +17,7 @@ public class LoginInterceptor extends AbstractInterceptor {
         if(isLogin == null || !isLogin) {
             ActionSupport action=(ActionSupport)invocation.getAction();
             action.clearErrorsAndMessages();
-            action.addActionError("Please login!");
+            action.addActionError(action.getText("please.title") + action.getText("login.title"));
             
             return "login";
         }
